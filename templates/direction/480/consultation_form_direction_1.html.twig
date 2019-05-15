@@ -1,0 +1,38 @@
+<section id="consultation_form_direction_1_section" class="pb-5 mb-0 newsletter">
+    <div class="container text-center justify-content-center px-0">
+        <div class="form-holder">
+            <div class="text-dark h2">Укажите страну посещения, и мы сориентируем Вас по срокам оформления визы</div>
+            <form id="consultation_form_direction_1" method="post">
+                <input type="hidden" name="event" value="consultation_form_direction_1">
+                <input type="hidden" name="type" value="application">
+                <input type="hidden" name="geo" value="{{ geo }}">
+                <input type="hidden" name="host" value="{{ geo.host }}">
+
+                <div class="form-group  justify-content-center text-center">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="col-lg-4">
+                                    <input type="text" name="name" placeholder="Ваше имя" required
+                                           pattern="[A-zА-я]{3,}[A-zА-я-\s]*">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="col-lg-4">
+                                    <input  type="text" name="phone" pattern="[\+]*[0-9]{6,}$"
+                                           placeholder="Ваш телефон" required>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="col-lg-4 mt-1">
+                                    <button type="submit" class="btn btn-success submit"><span>Отправить заявку</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

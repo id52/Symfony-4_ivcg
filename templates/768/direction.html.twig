@@ -1,0 +1,86 @@
+<div class="row" id="link-list">
+    <div class="col text-white d-flex justify-content-center">
+        <ul class="list-inline text-white d-flex justify-content-center region-links">
+            {#{% for reg in regions %}#}
+                {#<li class="list-inline-item">#}
+
+                    {#{% if region is defined and region==reg %}#}
+                        {#<a class="nav-link text-white intro-menu-current">{{ reg.title }}</a>#}
+                    {#{% else %}#}
+                        {#<a href="{{ path('direction', {'id': reg.id}) }}" class="nav-link text-white intro-menu"#}
+                           {#data-region="{{ reg.title }}">#}
+                            {#{{ reg.title }}#}
+                        {#</a>#}
+                    {#{% endif %}#}
+                {#</li>#}
+            {#{% endfor %}#}
+
+
+            {#<li class="list-inline-item"><a href="#flags" class="nav-link link-scroll text-white intro-menu" data-region="Шенген">Шенген</a>#}
+            {#</li>#}
+            {#<li class="list-inline-item"><a href="#flags" class="nav-link link-scroll text-white intro-menu" data-region="Европа">Европа</a>#}
+            {#</li>#}
+            {#<li class="list-inline-item"><a href="#flags" class="nav-link link-scroll text-white intro-menu" data-region="Азия">Азия</a>#}
+            {#</li>#}
+            {#<li class="list-inline-item"><a href="#flags" class="nav-link link-scroll text-white intro-menu" data-region="Америка">Америка</a>#}
+            {#</li>#}
+            {#<li class="list-inline-item"><a href="#flags" class="nav-link link-scroll text-white intro-menu" data-region="Океания">Океания</a>#}
+            {#</li>#}
+            {#<li class="list-inline-item"><a href="#flags" class="nav-link link-scroll text-white intro-menu" data-region="Африка и Ближний Восток">Африка и Ближний Восток</a>#}
+            {#</li>#}
+
+{% if regions is defined %}
+            <li class="list-inline-item">
+                <a id="menu-visas" href="#" class="nav-link link-scroll text-white intro-menu">
+                    Визы
+                    <i id="fa-angle-down" class="fa fa-angle-down"></i>
+                </a>
+            </li>
+{% else %}
+    <li class="list-inline-item">
+        <a  href="/#flags" class="nav-link link-scroll text-white intro-menu">
+            Визы
+            <i id="fa-angle-down" class="fa fa-angle-down"></i>
+        </a>
+    </li>
+{% endif %}
+            <li class="list-inline-item"><a href="/#section-care" class="nav-link link-scroll text-white intro-menu">Авиабилеты</a>
+            </li>
+            <li class="list-inline-item"><a href="/#section-care" class="nav-link link-scroll text-white intro-menu">Отели</a>
+            </li>
+            <li class="list-inline-item"><a href="/#section-care" class="nav-link link-scroll text-white intro-menu">Приглашения</a>
+            </li>
+            <li class="list-inline-item"><a href="/#section-care" class="nav-link link-scroll text-white intro-menu">Страхование</a>
+            </li>
+            <li class="list-inline-item"><a href="/#section-care" class="nav-link link-scroll text-white intro-menu">Переводы</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% if regions is defined %}
+<div class="container justify-content-center pl-5 w1110px" id="mini-visas">
+
+      <div class="row d-flex text-left">
+        {% for region in regions %}
+            <div class="col-4 mt-4">
+                <span class="h4">
+                    <a href="{{ path('direction', {'slug': region.slug} ) }}" class="text-dark region">
+                        {{ region }}
+                    </a>
+                </span>
+                <div class="d-flex flex-row flex-wrap mt-3">
+                    {% for visa in region.visas %}
+                        <a data-country="{{ visa }}" href="{{ path('visa', {'region_slug': visa.region.slug, 'slug': visa.slug} ) }}"
+                           class="{% if region=='Шенген' %}w-50 {% endif %} list-group-item-action href visa mt-1">
+                            <img class="miniflag" alt="" src="/img/1x1.png" data-src="{{ visa.img }}">
+                            {{ visa }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+
+    </div><!--//row-->
+</div> <!-- //container -->
+{% endif %}

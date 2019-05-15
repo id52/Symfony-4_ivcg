@@ -1,0 +1,160 @@
+<section id="results" class="results bg-gray  pt-5 px-4">
+    <div class="container text-center justify-content-center align-items-center">
+        <h2 class="text-dark m-4"><span>Получайте визы даже после отказов в других компаниях</span></h2>
+        <span class="text-dark my-4 h3">22 интересных случая из нашей практики</span>
+
+        <div class="owl-carousel owl-theme results-slider" id="res-slider">
+
+            {% for fact in facts %}
+                <div class="item-holder  text-center justify-content-center align-items-center">
+                    <div class="item  text-center justify-content-center align-items-center">
+                        <table>
+                            <tr>
+                                <td class="text-center justify-content-center align-items-center mt-0 td-1">
+                                    <div class="avatar margin-auto mt-1">
+                                        {% if fact.photoUri is empty %}
+                                            {% if fact.sex == 'male' %}
+                                                <img alt="" src="/img/1x1.png"
+                                                     data-src="/img/fact/default-avatar-m_100_100.jpg" class="w80px">
+                                            {% elseif fact.sex == 'female' %}
+                                                <img alt="" src="/img/1x1.png"
+                                                     data-src="/img/fact/default-avatar-f_100_100.jpg" class="w80px">
+                                            {% endif %}
+                                        {% else %}
+                                            <img alt="" src="/img/1x1.png" data-src="{{ fact.photoUri }}" class="w80px">
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-0">
+                                    <span class="h6 m-0 gray text-center">Клиент</span><br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="p-0">
+                                    <span class="h3 text-dark text-center ">{{ fact.client }}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-4">
+                                    {% if fact.vkUri is not empty %}
+                                        <div>
+                                            <span class="icon margin-auto">
+                                                <img alt="" src="/img/1x1.png" data-src="/img/read_testimonial.png">
+                                            </span>
+                                            <a target="_blank" class="margin-auto" href="{{ fact.vkUri }}"> Читать
+                                                отзыв клиента</a>
+
+                                        </div>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <td class="td-5">
+                                <hr class="my-0">
+                            </td>
+                            <tr>
+                                <td class="text-left td-6 valign-top">
+                                    <h4 class="my-2 px-5 text-dark problem">Задачи</h4>
+                                    <div class="results-check px-4">
+                                        {{ fact.problem|raw }}
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-left td-7 valign-top">
+                                    <h4 class="my-2 px-5 text-dark problem">Решение</h4>
+                                    <div class="results-check px-4">
+                                        {{ fact.solution|raw }}
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-8 valign-top">
+                                    <div class="row results-footer d-flex justify-content-center align-items-center text-center pt-4 pb-4 pl-4 pr-4 mb-0">
+                                        <div class="row text-white">
+                                            <div class="col">
+                                                <span class="h3 text-white">Результаты</span>
+                                            </div>
+                                        </div>
+                                        <div class="row text-white justify-content-center align-items-center text-center pt-0 mt-0 mb-0">
+
+
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="results-footer-col">
+                                                            <h2 class="text-white"><span
+                                                                        class="result-number">{{ fact.number1|number_format(0, '.', ' ') }}</span>
+                                                            </h2>
+                                                            <hr>
+                                                            <span class="result-text"><span
+                                                                        class="b">{{ fact.measure1 }}</span>&nbsp;{{ fact.option1 }}</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="results-footer-col">
+                                                            <h2 class="text-white"><span
+                                                                        class="result-number">{{ fact.number2|number_format(0, '.', ' ') }}</span>
+                                                            </h2>
+                                                            <hr>
+                                                            <span class="result-text"><span
+                                                                        class="b">{{ fact.measure2 }}</span>&nbsp;{{ fact.option2 }}</span>
+                                                        </div>
+
+                                                    </td>
+                                                    <td>
+                                                        <div class="results-footer-col">
+                                                            <h2 class="text-white"><span
+                                                                        class="result-number">{{ fact.number3|number_format(0, '.', ' ') }}</span>
+                                                            </h2>
+                                                            <hr>
+                                                            <span class="result-text"><span
+                                                                        class="b">{{ fact.measure3 }}</span>&nbsp;{{ fact.option3 }}</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <div class="results-footer-col">
+                                                            <h2 class="text-white"><span
+                                                                        class="result-number">{{ fact.number4|number_format(0, '.', ' ') }}</span>
+                                                            </h2>
+                                                            <hr>
+                                                            <span class="result-text"><span
+                                                                        class="b">{{ fact.measure4 }}</span>&nbsp;{{ fact.option4 }}</span>
+                                                        </div>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <div class="results-footer-col text-center">
+                                                            <h2 class="text-white"><span
+                                                                        class="result-number">{{ fact.number5|number_format(0, '.', ' ') }}</span>
+                                                            </h2>
+                                                            <hr>
+                                                            <span class="result-text"><span
+                                                                        class="b">{{ fact.measure5 }}</span>&nbsp;{{ fact.option5 }}</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div> <!--//row-->
+                                    </div><!-- row results-footer -->
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </div><!--//item-->
+
+                </div><!--//item-holder-->
+            {% endfor %}
+        </div>
+    </div>
+    <br><br>
+</section>

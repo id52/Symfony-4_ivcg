@@ -1,0 +1,79 @@
+<section id="info" class="bg-gray mb-0 pb-5 pt-5 px-4">
+    <div class="container justify-content-center text-center align-content-center ">
+        <header class="text-center no-margin-bottom">
+            <h2 class="text-dark">
+                <span>{{ visa.infoMainTitle }}</span>
+            </h2>
+            <span class="h3 text-dark mt-4">{{ visa.infoSubTitle }}</span>
+        </header>
+
+
+        {% for info in visa.infos %}
+            <table class="mt-5 w100p">
+                <tr>
+
+                    <td class="">
+                        <div class="info-box ml-4 margin-auto">
+                            <div class="info-box-header">
+
+                                <hr class="info-box-hr">
+                                <div class="info-box-title text-left">
+                                    {{ info.title|raw }}
+                                </div>
+
+                                <div class="info-box-body">
+                                    <div class="info-box-fees text-left">
+
+                                        <table>
+                                            <tr>
+                                                <td class="align-top">
+                                                    <i class="fa fa-database mr-1"></i>
+                                                </td>
+                                                <td>
+                                                    {{ info.fees }}
+                                                </td>
+                                            </tr>
+                                        </table>
+
+
+                                    </div>
+                                    <div class="info-box-term text-left">
+
+
+                                        <table>
+                                            <tr>
+                                                <td class="align-top">
+                                                    <i class="fa fa-clock-o mr-1"></i>
+                                                </td>
+                                                <td>
+                                                    Сроки: {{ info.term }}
+                                                </td>
+                                            </tr>
+                                        </table>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-box-footer text-center align-content-center">
+                                <div class="info-box-price">
+                                    {{ info.price }} ₽
+                                </div>
+                                <div class="info-box-button">
+                                    <a class="btn btn-lg btn-success  text-white href my-4"
+                                       href="#" data-toggle="modal" data-target="#consultation_modal_5">
+                                        Получить визу
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        {% endfor %}
+    </div>
+</section>
+

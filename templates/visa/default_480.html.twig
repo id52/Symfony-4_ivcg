@@ -1,0 +1,36 @@
+{% extends '480/layout.html.twig' %}
+{% block content %}
+    {% include '480/menu.html.twig' %}
+    {% include '480/modal.html.twig' %}
+    {% include 'direction/480/intro.html.twig' with {'title': visa.introTitle} %}
+    {% include 'visa/480/consultation_form_visa_1.html.twig'  %}
+    {% include 'direction/480/advantages.html.twig' with {'background_class': 'bg-gray'} %}
+    {% include 'visa/480/info.html.twig' %}
+    {% include 'visa/480/document.html.twig' %}
+    {% include 'visa/480/five_circles.html.twig' %}
+    {% include 'direction/480/five_steps.html.twig' %}
+    {% include '480/care.html.twig' %}
+    {% include 'direction/480/question.html.twig'  %}
+    {% include '480/intro2.html.twig' %}
+    {% include '480/advantage.html.twig' with {'title': visa.tenAdvantagesMainTitle, 'subtitle': visa.tenAdvantagesSubTitle} %}
+
+    {% if app.request.host == 'ivcg.ru' %}
+        {% include 'visa/480/text.html.twig' %}
+    {% endif %}
+    {% include 'visa/480/consultation_form_visa_2.html.twig' %}
+    {% include '480/footer.html.twig' %}
+
+    {#{% include '480/intro2_slider.html.twig' %}#}
+    {#{% include 'visa/480/advantage.html.twig' with {'title': visa.tenAdvantagesMainTitle, 'subtitle': visa.tenAdvantagesSubTitle} %}#}
+    {#{% include 'visa/480/text.html.twig' %}#}
+    {#{% include 'visa/480/consultation_form_visa_2.html.twig' %}#}
+
+
+{% endblock content %}
+
+
+{% block js %}
+    {{ parent() }}
+{% endblock js %}
+
+

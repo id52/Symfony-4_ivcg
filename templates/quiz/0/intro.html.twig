@@ -1,0 +1,209 @@
+<section id="quiz_intro">
+
+    <div class="container text-center align-content-center margin-auto px-0">
+        <div class="quiz-intro-text text-left text-white">
+            {% if quiz_view.value %}
+                <div class="h1 text-center">
+                    Оформление виз в 65&nbsp;стран мира за 1&nbsp;день со 100%&nbsp;гарантией
+                </div>
+
+                <div class="h2 text-center text-white mt-4">
+                    Ответьте на {{ questions|length }} вопросов и получите бесплатную консультацию с расчётом стоимости визы в указанную страну
+                </div>
+
+                <table class="check-items justify-content-center text-center mt-4">
+                    <tr>
+                        <td class="align-text-top">
+                            <img alt="" src="/img/1x1.png" data-src="/img/banner_check.png" class="mr-2">
+                        </td>
+                        <td class="align-text-center text-white">
+                            С быстрым оформлением документов
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="align-text-top">
+                            <img alt="" src="/img/1x1.png" data-src="/img/banner_check.png" class="mr-2">
+                        </td>
+                        <td class="align-text-center text-white">
+                            Без бронирования гостиниц и авиабилетов
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="align-text-top">
+                            <img alt="" src="/img/1x1.png" data-src="/img/banner_check.png" class="mr-2">
+                        </td>
+                        <td class="align-text-center text-white">
+                            Более 2468 довольных клиентов
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success quiz-btn quiz-start">
+                    <span class="margin-auto">
+                        Получить расчёт
+                    </span>
+                    </button>
+                </div>
+            {% else %}
+                <div class="h1 text-center">
+                    Как сэкономить до 3500 рублей и 7 дней на оформлении визы?
+                </div>
+
+                <div class="h2 text-center text-white mt-4">
+                    Ответьте на простых вопросов и узнайте реальную стоимость и сроки оформления визы в интересуюущую
+                    Вас страну
+                </div>
+
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success quiz-btn quiz-start">
+                    <span class="margin-auto">
+                        Пройти опрос (1 минута)
+                    </span>
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+
+        <form id="quiz_form_1" method="post" class="newsletter form-holder form-group margin-auto text-center">
+            <input type="hidden" name="type" value="quiz">
+            <input type="hidden" name="event" value="quiz">
+            <input type="hidden" name="host" value="{{ geo.host }}">
+
+            {% set step = 0 %}
+            {% for question in questions %}
+                {% set step = step + 1 %}
+
+                <div class="box bg-white margin-auto text-center text-dark p-5 " data-box="{{ step }}">
+
+                    <div class="text-dark text-center question">
+                        {{ question|raw }}
+                    </div>
+
+                    {% if question.quizType == 'phone' %}
+                        <input data-question_id="{{ question.id }}"
+                               class="mt-4 margin-auto"
+                               type="phone"
+                               placeholder="{{ question.placeholder }}"
+                               name="quiz[{{ question.emailTitle }}]">
+                    {% endif %}
+
+                    {% if question.quizType == 'text' %}
+                        <input data-question_id="{{ question.id }}"
+                               class="mt-4 margin-auto"
+                               type="text"
+                               placeholder="{{ question.placeholder }}"
+                               name="quiz[{{ question.emailTitle }}]">
+                    {% endif %}
+
+                    {% if question.quizType == 'textarea' %}
+                        <textarea
+                                class="mt-4 margin-auto"
+                                data-question_id="{{ question.id }}"
+                                placeholder="{{ question.placeholder }}"
+                                name="quiz[{{ question.emailTitle }}]"></textarea>
+                    {% endif %}
+
+                    {% if question.quizType == 'radio' %}
+                        <table class="m-4">
+                            {% for answer in question.quizAnswers %}
+                                <tr>
+                                    <td>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input"
+                                                   data-question_id="{{ question.id }}"
+                                                   id="answer_{{ answer.id }}"
+                                                   name="quiz[{{ question.emailTitle }}]"
+                                                   value="{{ answer.title }}"
+                                            >
+                                            <span class="custom-control-indicator"></span>
+                                            <span class="custom-control-description">{{ answer }}</span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+
+                    {% if question.quizType == 'checkbox' %}
+                        <table class="m-4">
+                            {% for answer in question.quizAnswers %}
+                                <tr>
+                                    <td>
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input "
+                                                   data-question_id="{{ question.id }}"
+                                                   id="answer_{{ answer.id }}"
+                                                   name="quiz[{{ question.emailTitle }}][]"
+                                                   value="{{ answer.title }}"
+                                            >
+                                            <span class="custom-control-indicator"></span>
+                                            <span class="custom-control-description">{{ answer }}</span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+
+                    <table class="mt-4" width="100%">
+                        <tr>
+                            <td class="text-left">
+                                <button type="button" class="btn btn-outline-success  quiz-cancel">
+                                    <span>Отмена</span></button>
+                            </td>
+                            <td class="text-right">
+                                <button disabled id="button-next-question_{{ question.id }}"
+                                        type="{% if step == questions|length %}submit{% else %}button{% endif %}"
+                                        class="btn btn-success quiz-next-step"><span>Далее</span></button>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="progress-words text-dark text-center mt-4 mb-0">
+                        {{ step }} из <span id="all-quiz-steps"
+                                            data-all-quiz-steps="{{ questions|length }}">{{ questions|length }}</span>
+                    </div>
+
+                    <div class="mt-0 progress text-center margin-auto" style="width: 100px; height: 4px">
+                        <div class="progress-bar" style="width:{{ 100 * step / questions|length }}%"></div>
+                    </div>
+
+                </div><!-- // box -->
+            {% endfor %}
+
+            <div class="box box-finish bg-white margin-auto text-center text-dark p-5" data-box="{{ step+1 }}">
+                <div class="text-dark text-center question">
+                    Спасибо за ответ
+                </div>
+
+                <img src="/img/quiz/man-with-headphones.png" class="mt-4"><br>
+                <button type="button" class="btn btn-success mt-4 quiz-finish"><span>Готово</span></button>
+            </div>
+
+            <div class="box box-confirm bg-white margin-auto text-center text-dark p-5">
+                <div class="text-dark text-center question">
+                    Вы дествительно хотите отменить заполнение формы? Все данные будут утеряны.
+                </div>
+
+                <table class="mt-4">
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-success mx-4 quiz-confirm-cancel"><span>Нет</span>
+                            </button>
+                        </td>
+
+                        <td>
+                            <button id="button-confirm" type="button"
+                                    class="btn btn-outline-success mx-4 quiz-confirm-accept"><span>Да</span></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+
+    </div> <!-- //container -->
+</section><!-- #quiz_intro -->

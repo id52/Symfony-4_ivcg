@@ -1,0 +1,146 @@
+<section id="flags" class="{% if section_class is defined %}{{ section_class }} mt-0 pt-5 {% else %}{% endif %}">
+    <div class="container">
+        <div class="row text-white d-flex justify-content-center text-dark text-center">
+            <div class="col">
+                <h2>
+                    {% if title is defined %}
+                        {{ title|raw }}
+                    {% else %}
+                        Поможем попасть <br> в любую страну
+                    {% endif %}
+
+
+                </h2><br>
+                {% if subtitle is defined %}
+                    {{ subtitle|raw }}
+                {% else %}
+                    <span class="h3">Законно, легально, доступно</span><br>
+                {% endif %}
+
+
+                {% if subsubtitle is defined %}
+                    {{ subsubtitle|raw }}
+                {% else %}
+                    <span class="h4 mt-4 line-height">Работаем со всеми самыми популярными направлениями туристических поездок,<br>
+                    бизнес-туров и&nbsp;т.д.
+                    Выбирайте своё и заказывайте визу со сроком оформления до 2 раз<br>
+                    меньше, чем если бы вы занимались этим самостоятельно.
+                </span>
+                {% endif %}
+
+            </div>
+        </div>
+
+
+        <div class="row mx-0 px-0 mt-4">
+            <div class="col justify-content-center text-center align-content-center mx-0 px-0 margin-auto">
+                <table class="flags-header margin-auto">
+                    <tr>
+                        {% for region in regions %}
+                            <td class="mx-0 px-0">
+                                {% if region=='Африка и Ближний Восток' %}
+                                    <div class="link-flag-long"><a href="#" class="nav-link menu-visa-link"
+                                                                   data-region="{{ region }}"><span>{{ region }}</span></a>
+                                    </div>
+                                {% elseif  region=='Шенген' %}
+                                    <div class="link-flag-short-first link-flag-short "><a href="#"
+                                                                                           class="nav-link menu-visa-link"
+                                                                                           data-region="{{ region }}"><span>{{ region }}</span></a>
+                                    </div>
+                                {% else %}
+                                    <div class="link-flag-short"><a href="#" class="nav-link menu-visa-link"
+                                                                    data-region="{{ region }}"><span>{{ region }}</span></a>
+                                    </div>
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col d-flex justify-content-center text-center">
+                <p id="text-flag">
+
+
+                    <span data-region="Шенген">
+                        Обеспечим оформление визы для посещения любой страны шенгенского союза в срок от 1 дня с гарантией
+                    </span>
+
+                    <span data-region="Европа">
+                        Путешествия по Европе никогда еще не были такими доступными, как с «Международный визовый центр»
+                    </span>
+
+                    <span data-region="Азия">
+                        Помогаем в оформлении визы в страны Азии с покупкой турпакета или без оного
+                    </span>
+
+                    <span data-region="Америка">
+                        В кратчайшие сроки получите визу любого типа для посещения стран и государств, расположенных на территории Америки
+                    </span>
+
+                    <span data-region="Океания">
+                        Визы без проблем и личного присутствия в любую из 14 стран Океании оформляются у нас в срок от 1 рабочего дня
+                    </span>
+
+                    <span data-region="Африка и Ближний Восток">
+                        Предоставляем полный комплекс услуг по оформлению визы и сопутствующих поездке документов
+                    </span>
+
+                </p>
+            </div>
+        </div>
+
+
+        <table class="margin-auto">
+            {% for region in regions %}
+
+                {% for row in region.visas|batch(4) %}
+
+                    <tr class="region-flags" data-region="{{ region }}">
+                        {% for visa in row %}
+                            <td>
+                                <div class="row col-sm-3 d-flex justify-content-center text-center m-0 p-0">
+                                    <figure class="flag mr-4">
+                                        <a href="{{ path('visa', {'region_slug': visa.region.slug, 'slug': visa.slug}) }}">
+                                            <img alt="" src="/img/1x1.png" data-src="{{ visa.img }}"
+                                                 class="big_flag_img">
+                                        </a>
+                                        <div class="figcaption">
+                                            {{ visa }}
+                                        </div>
+                                        <div class="footer-hideable">
+                                            <div class="figcaption">
+                                                &nbsp;
+                                            </div>
+                                            <div class="text-left">
+                                                <span class="gray">&nbsp;&nbsp;Сроки:</span> <span class="b">от 5 дней</span><br>
+                                                <span class="gray">&nbsp;&nbsp;Цена:</span> <span class="b">от {{ visa.price }} ₽</span><br>
+                                            </div>
+                                            <div>
+                                                <a class="btn btn-success btn-sm text-white get-country-consultation href mt-4 btn-flag"
+                                                   data-country="{{ visa }}">Получить консультацию</a>
+
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div> <!--//col -->
+
+                            </td>
+                        {% endfor %}
+
+                        {% if row|length==1 %}  <td></td><td></td><td></td> {% endif %}
+                        {% if row|length==2 %}  <td></td><td></td> {% endif %}
+                        {% if row|length==3 %}  <td></td> {% endif %}
+
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+
+
+        <br><br><br><br>
+
+    </div> <!--//container-->
+</section>

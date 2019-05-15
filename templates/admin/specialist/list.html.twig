@@ -1,0 +1,52 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+    <a class="btn btn-secondary float-right" href="{{ path('admin_specialist_create') }}"><i class="fa fa-plus"></i> Добавить</a>
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="mt-5">Специалисты</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+
+    {% if pagerfanta.currentPageResults|length %}
+        <table class="table table-stripped table-sm">
+
+            <thead>
+            <th>№</th>
+            <th></th>
+            <th>Имя</th>
+            <th>Видео Uri</th>
+            <th>Сортировка</th>
+            <th class="float-right"></th>
+            </thead>
+
+            <tbody>
+
+            {% for specialist in pagerfanta.currentPageResults %}
+                <tr>
+                    <td>{{ specialist.id }}</td>
+                    <td><img src="{{ specialist.photoUri }}" width="100px"></td>
+                   <td>{{ specialist.name }}</td>
+                    <td><a target="_blank" href="{{ specialist.videoUri }}">{{ specialist.videoUri }}</a></td>
+                    <td>{{ specialist.position }}</td>
+                   <td class="float-right">
+
+                       <a href="{{ path('admin_specialist_edit', { id : specialist.id }) }}"><i class="fa fa-edit"></i></a>
+                       <a href="{{ path('admin_specialist_delete', { id : specialist.id }) }}"><i class="fa fa-times text-danger"></i></a>
+                   </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% if pagerfanta.haveToPaginate %}
+            <div class="text-center">
+                {{ pagerfanta(pagerfanta, 'twitter_bootstrap4', { prev_message: '←', next_message: '→' }) }}
+            </div>
+        {% endif %}
+    {% else %}
+        Нет данных
+    {% endif %}
+{% endblock content %}

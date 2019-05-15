@@ -1,0 +1,24 @@
+{% extends '768/layout.html.twig' %}
+{% block content %}
+    {% include '768/menu.html.twig' %}
+    {% include '768/modal.html.twig' %}
+    {% include '768/intro.html.twig' %}
+    {% include '768/consultation_form_1.html.twig' %}
+    {% include '768/flag.html.twig' %}
+    {% include '768/feature.html.twig' %}
+    {% include '768/intro2.html.twig' %}
+    {% include '768/advantage.html.twig'  with {'is_consultation_form_2': true} %}
+    {% include '768/map.html.twig' %}
+    {% include '768/fact.html.twig' %}
+    {% include '768/care.html.twig' %}
+    {% include '768/testimonial.html.twig' %}
+    {% include '768/footer.html.twig' %}
+{% endblock content %}
+
+
+
+
+    {#{% include 'online_video.html.twig' %}#} {# disabled, after advantage and before map#}
+    {#{% include '768/intro2_slider.html.twig' %}#} {# after intro2 and before advantage. Remove comments of specialists in modal.html.twig and 768/intro2_slider#}
+    {#{% include '768/join.html.twig' %}#} {# disabled, after fact and before care#}
+    {#{% include '768/consultation_form_3.html.twig' %}#}  {# disabled, after testimonials and before footer#}

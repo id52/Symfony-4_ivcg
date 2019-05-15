@@ -1,0 +1,22 @@
+{% extends '480/layout.html.twig' %}
+{% block content %}
+    {% include '480/menu.html.twig' %}
+    {% include '480/modal.html.twig' %}
+    {% include 'direction/480/intro.html.twig' with {'title': region.introTitle} %}
+    {% include '480/consultation_form_1.html.twig' %}
+    {% include 'direction/480/advantages.html.twig' %}
+    {% include 'direction/480/flag.html.twig' %}
+    {% include 'direction/480/five_steps.html.twig' %}
+    {% include 'direction/480/consultation_form_direction_1.html.twig' %}
+    {% include 'direction/480/question.html.twig' %}
+    {% include '480/intro2.html.twig' %}
+    {% include '480/advantage.html.twig' with {'title': region.tenAdvantagesMainTitle, 'subtitle': region.tenAdvantagesSubTitle} %}
+    {% include 'direction/480/three_rules.html.twig' with {'title': region.textMainTitle, 'subtitle': region.textSubTitle, 'text': region.text } %}
+    {% include 'direction/480/consultation_form_direction_2.html.twig' with {'title': region.consultationFormDirection2 } %}
+    {% include '480/footer.html.twig' %}
+{% endblock content %}
+
+
+{% block js %}
+    {{ parent() }}
+{% endblock js %}

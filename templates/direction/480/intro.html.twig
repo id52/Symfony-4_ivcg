@@ -1,0 +1,10 @@
+<section id="intro" class="py-5 px-5 direction-intro-background" >
+    {#{% include '0/direction.html.twig' %}#}
+    <div class="container my-5">
+        <div class="h1 intro-text">
+            {% if title is defined %}
+                {{ title|raw|striptags }}
+            {% endif %}
+        </div><!--intro-text-->
+    </div> <!-- //container -->
+</section><!-- #intro -->

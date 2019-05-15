@@ -1,0 +1,48 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+        <a class="btn btn-secondary float-right" href="{{ path('admin_visa_list') }}"><i class="fa fa-arrow-left"></i> Назад</a>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                {% if action =='add' %}
+                    <h1 class="mt-5">Добавить новую визу</h1>
+                    <p class="lead"></p>
+                {% elseif action == 'edit' %}
+                    <h1 class="mt-5">Редактировать визу</h1>
+                    <p class="lead"></p>
+                {% endif %}
+            </div>
+        </div>
+
+
+    {% if visa.img is not empty %}
+        <div class="row text-center">
+            <div class="col">
+                <img src="{{ visa.img }}"  style=" border: 1px; border-color: #e1e1e1; border-style: solid;">
+            </div>
+        </div>
+
+    {% endif %}
+
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    <script>
+        $(function() {
+            $('textarea').froalaEditor();
+        });
+    </script>
+{% endblock js %}
+

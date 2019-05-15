@@ -1,0 +1,47 @@
+<section id="consultation_form_contacts_section" class="pb-5">
+    <div class="newsletter pt-5" >
+        <div class="container text-center justify-content-center">
+            <div class="form-holder">
+                <span class="text-dark h2 pb-4" >Оставьте ваши контактные данные, и мы свяжемся с вами!</span>
+                <form id="consultation_form_contacts_2" method="post">
+                    <input type="hidden" name="event" value="consultation_form_contacts">
+                    <input type="hidden" name="type" value="contacts">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+                    <div class="form-group justify-content-center text-center">
+                        <table class="margin-auto">
+                            <tbody>
+                            <tr>
+                                <td width="33%" class="valign-top" >
+                                    <div class="">
+                                        <input type="text" name="name" placeholder="Ваше имя" required class="mt-0">
+                                    </div>
+                                </td>
+                                <td rowspan="2" >
+                                    <textarea rows="3"  class="form-control w-100 ml-5" name="commentary" placeholder="Ваше сообщение" required></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="valign-bottom"  >
+                                    <div class="">
+                                        <input  type="text" name="phone" pattern="[\+]*[0-9]{6,}$" placeholder="Ваш телефон" required>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="td-button">
+                                    <div class="">
+                                        <button type="submit" class="btn btn-success submit"><span>Отправить заявку</span></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

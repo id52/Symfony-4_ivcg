@@ -1,0 +1,44 @@
+<section id="intro">
+
+    {% include '768/direction.html.twig' %}
+
+    <div class="container">
+        <div class="intro-text margin-auto w1110px">
+            <div class="h1">
+                {% if app.request.host == 'ivcg.ru' %}
+                    {% if region.title == 'Шенген' %}
+                        <h1>Получите шенгенскую визу</h1> с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Европа' %}
+                        <h1>Получите визу в любую страну Европы</h1>  с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Азия' %}
+                        <h1>Получите визу в любую страну Азии</h1>  с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Америка' %}
+                        <h1>Получите визу в любую страну Америки</h1>  с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Океания' %}
+                        <h1>Получите визу в любую страну Океании</h1>  с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Африка и Ближний Восток' %}
+                        <h1>Получите визу в любую страну Африки и Ближнего Востока</h1>  с гарантией 99,98% в срок от одного рабочего дня!
+                    {% else %}
+                        <h1>Получите визу в любую страну </h1> с гарантией 99,98% в срок от одного рабочего дня!
+                    {% endif %}
+                {% else %}
+                    {% if region.title == 'Шенген' %}
+                        <h1>Получите шенгенскую визу</h1> {{ geo.prepositionalCaseWithPrepositionLow }} с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Европа' %}
+                        <h1>Получите визу в любую страну Европы</h1> {{ geo.prepositionalCaseWithPrepositionLow }} с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Азия' %}
+                        <h1>Получите визу в любую страну Азии</h1> {{ geo.prepositionalCaseWithPrepositionLow }} с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Америка' %}
+                        <h1>Получите визу в любую страну Америки</h1> {{ geo.prepositionalCaseWithPrepositionLow }} с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Океания' %}
+                        <h1>Получите визу в любую страну Океании</h1> {{ geo.prepositionalCaseWithPrepositionLow }} с гарантией 99,98% в срок от одного рабочего дня!
+                    {% elseif region.title == 'Африка и Ближний Восток' %}
+                        <h1>Получите визу в любую страну Африки и Ближнего Востока</h1> {{ geo.prepositionalCaseWithPrepositionLow }} с гарантией 99,98% в срок от одного рабочего дня!
+                    {% else %}
+                        <h1>Получите визу в любую страну {{ geo.prepositionalCaseWithPrepositionLow }}</h1> с гарантией 99,98% в срок от одного рабочего дня!
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div><!--intro-text-->
+    </div> <!-- //container -->
+</section><!-- #intro -->

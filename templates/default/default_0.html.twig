@@ -1,0 +1,32 @@
+{% extends '0/layout.html.twig' %}
+{% block content %}
+            {% include '0/menu.html.twig' %}
+            {% include '0/modal.html.twig' %}
+            {% include '0/intro.html.twig' %}
+            {% include '0/consultation_form_1.html.twig' %}
+            {% include '0/flag.html.twig' %}
+            {% include '0/feature.html.twig' %}
+            {% include '0/intro2.html.twig' %}
+            {% include '0/advantage.html.twig' %}
+            {% include '0/consultation_form_2.html.twig' %}
+            {% include '0/map.html.twig' %}
+            {% include '0/fact.html.twig' %}
+            {#{% include '0/join.html.twig' %}#}
+            {% include '0/care.html.twig' %}
+            {% include '0/testimonial.html.twig' %}
+            {% include '0/consultation_form_3.html.twig' %}
+            {% include '0/footer.html.twig' %}
+
+        {#{% include '0/intro2_slider.html.twig' %}#} {#### after intro2 and before advantage ######}
+    {#{% include 'online_video.html.twig' %}#}    {##### after consultation_form_2 and before map #####}
+
+    <div id="join-upload-file"></div>
+{% endblock content %}
+
+
+{% block js %}
+    {{ parent() }}
+    <script defer src="js/map/jquery-jvectormap.min.js"></script>
+    <script defer src="js/map/jquery-jvectormap-ru-custom.js"></script>
+
+{% endblock js %}

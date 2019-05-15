@@ -1,0 +1,38 @@
+<section id="map" class="pt-0 pb-5">
+    <div class="container-fluid text-center text-white text-center justify-content-center pt-5">
+        <div class="h2 text-white mt-0 pt-0">Клиенты в 28 городах заручились<br>нашей поддержкой</div>
+        <div class="h3 text-white m-4">И это ещё не предел!</div>
+        <div class="h4 text-white lead m-4">Постоянно работаем над расширением географии. Найдите на нашей клиентской карте свой город. </div>
+
+        <table class="w50p">
+            {% for key, row in maps|batch(2) %}
+                {% if key < 2 %}
+                    <tr>
+                    {% for map in row %}
+                        <td>
+                            <img class="mx-1 marker-image" src="{{ map.photoUri|raw }}"><br>
+                            {{ map.city }}
+                        </td>
+                    {% endfor %}
+                    </tr>
+                {% endif %}
+
+
+                {% if key >= 2 %}
+                    <tr style="display: none" class="map_show_more">
+                        {% for map in row %}
+                            <td>
+                                <img class="mx-1 marker-image" src="{{ map.photoUri|raw }}"><br>
+                                {{ map.city }}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+
+            {% endfor %}
+        </table>
+
+        <button class="mt-4 mb-4 btn btn-lg btn-outline-light" id="map_btn_show_more">Показать ещё</button>
+
+    </div>
+</section>

@@ -1,0 +1,63 @@
+$(function () {
+    $('#ru-map').vectorMap(
+        {
+            map: 'ru_merc',
+            regionStyle: {
+                initial: {
+                    fill: '#116CC9',
+                    stroke: '#0F5097',
+                    "stroke-width": 1
+                },
+
+            },
+            backgroundColor: 'trans',
+            markersSelectable: true,
+            zoomOnScroll: false,
+            normalizeFunction: 'polynomial',
+            markers: [
+                {% for map in maps %}
+                    {
+                        latLng: [
+                            {{ map.latitude|raw }},
+                            {{ map.longitude|raw }}
+                        ],
+                        name:
+                            '{{ map.city|raw }}',
+                        attribute:
+                            'image'
+                    },
+                {% endfor %}
+            ],
+
+            markerStyle: {
+                initial: {
+                    "image": "/img/marker.png",
+                },
+                {#hover: {#}
+                    {#"image": '/img/marker_circles.png',#}
+                {#},#}
+            },
+
+            onRegionTipShow: function(event, label, index){
+                event.preventDefault();
+            },
+
+            onMarkerTipShow: function (event, label, index) {
+                {% for key, map in maps %}
+                    if (index == {{ key }}) {
+                        label.html(
+                            '<div class="marker">'
+                                {% if map.photoUri is not empty %}
+                                    +'<img class="marker-image" src="{{ map.photoUri|raw }}"><br>'
+                                {% endif %}
+
+                                +'<span class="marker-city">{{ map.city }}</span><br>'
+
+                            +'</div>'
+                        );
+                    }
+                {% endfor %}
+            },
+        }
+    );
+});

@@ -1,0 +1,100 @@
+<section id="intro">
+
+    {% include '768/direction.html.twig' %}
+
+    <div class="container">
+        <div class="h1 intro-text margin-auto">
+            {% if error_404 is defined %}
+                404 Страница не найдена!
+            {% else %}
+                {% if app.request.host == 'ivcg.ru' %}
+                    <h1 class="">Закажите визу в любую страну у ведущих специалистов своей отрасли:</h1> экономим вам до 7 дней, на 99,98% гарантируем получение визы благодаря уникальной системе контроля
+                {% else %}
+                    <h1 class="">Закажите визу в любую страну {{ geo.prepositionalCaseWithPrepositionLow }} у ведущих специалистов своей отрасли:</h1> экономим вам до 7 дней, на 99,98% гарантируем получение визы благодаря уникальной системе контроля
+                {% endif %}
+            {% endif %}
+
+            <p></p>
+
+        </div>
+
+            <div class="row text-white mt-lg-5">
+                <div class="col px-4">
+                    <table class="w1090px">
+                        <tr>
+                            <td class="text-left pl-0 ">
+                                <table class="ml-0 pl-0">
+                                    <tr>
+                                        <td class="align-text-top">
+                                            <img alt="" src="/img/1x1.png" data-src="/img/banner_check.png" class="mt-3 mr-2">
+                                        </td>
+                                        <td class="align-text-top text-white">
+                                            92% клиентов становятся<br>постоянными
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td class="align-text-top">
+                                            <img alt="" src="/img/1x1.png" data-src="/img/banner_check.png" class="mt-3 mr-2">
+                                        </td>
+                                        <td class="align-text-top text-white">
+                                            Уникальная программа<br>контроля качества
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="text-right pl-0">
+                                <table class="mr-0 pr-0">
+                                    <tr>
+                                        <td class="align-text-top">
+                                            <img alt="" src="/img/1x1.png" data-src="/img/banner_check.png" class="mt-3 mr-2">
+                                        </td>
+                                        <td class="align-text-top text-white">
+                                            Занимаемся оформлением<br>всех типов виз: деловых,<br>туристических. гостевых&nbsp;и&nbsp;т.д.
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div><!--col-->
+            </div><!--//row-->
+
+            <div class="row text-white d-flex   text-center align-content-center ">
+                <div class="col">
+                    <table class="w1110px">
+                        <tr>
+                            <td>
+                                <table style="margin-left: 200px "  >
+                                    <tr>
+                                        <td class="align-text-top">
+                                            <img alt="" src="/img/1x1.png" data-src="/img/banner_check.png" class="mt-3 mr-2">
+                                        </td>
+                                        <td class="align-text-top text-white">
+                                            2000+ виз оформлено<br>только за 2017 год
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <table style="margin-right: 200px "  >
+                                    <tr>
+                                        <td class="align-text-top">
+                                            <img alt="" src="/img/1x1.png" data-src="/img/banner_check.png" class="mt-3 mr-2">
+                                        </td>
+                                        <td class="align-text-top text-white">
+                                            5 дополнительных<br>услуг для удобства клиентов
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+    </div> <!-- //container -->
+</section><!-- #intro -->

@@ -1,0 +1,29 @@
+{% extends '0/layout.html.twig' %}
+{% block content %}
+    {% include '0/menu.html.twig' %}
+    {% include '0/modal.html.twig' %}
+    {% include 'direction/0/intro.html.twig' with {'title': region.introTitle} %}
+    {% include '0/consultation_form_1.html.twig' %}
+    {% include 'direction/0/advantages.html.twig' %}
+    {% include 'direction/0/flag.html.twig' %}
+    {% include 'direction/0/five_steps.html.twig' %}
+    {% include 'direction/0/consultation_form_direction_1.html.twig' %}
+    {% include 'direction/0/question.html.twig' %}
+    {% include '0/intro2.html.twig' %}
+    {% include '0/advantage.html.twig' with {'title': region.tenAdvantagesMainTitle} %}
+    {% if app.request.host == 'ivcg.ru' %}
+        {% include 'direction/0/text.html.twig' %}
+    {% endif %}
+    {% include 'direction/0/consultation_form_direction_2.html.twig' with {'title': region.consultationFormDirection2 } %}
+
+    {% include '0/footer.html.twig' %}
+
+    {#{% include '0/intro2_slider.html.twig' %}  after intro2 and before advantage # }
+    {# % include 'direction/0/three_rules.html.twig' with {'title': region.textMainTitle, 'subtitle': region.textSubTitle, 'text': region.text }  after advantage % #}
+
+{% endblock content %}
+
+
+{% block js %}
+    {{ parent() }}
+{% endblock js %}

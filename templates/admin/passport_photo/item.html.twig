@@ -1,0 +1,85 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+    <a class="btn btn-secondary float-right" href="{{ path('admin_passport_photo_list') }}"><i
+                class="fa fa-arrow-left"></i> Назад</a>
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            {% if action =='add' %}
+                <h1 class="mt-5">Добавить фотографию человека с паспортом</h1>
+                <p class="lead"></p>
+            {% elseif action == 'edit' %}
+                <h1 class="mt-5">Редактировать фотографию человека с паспортом</h1>
+                <p class="lead"></p>
+            {% endif %}
+        </div>
+    </div>
+
+    {% if passport_photo is not empty %}
+        <div class="row">
+            <div class="col">
+                <img src="{{ passport_photo.uri }}">
+            </div>
+        </div>
+    {% endif %}
+
+    <br>
+
+    <div class="mt-1 text-danger" id="photo-passport-error-size">
+        Размер файла должен быть меньше 5 Мб
+    </div>
+
+    <div class="mt-1 text-danger" id="photo-passport-error-type">
+        Допустимые форматы файла: jpeg, png или gif
+    </div>
+
+    <br>
+
+    <form action="{% if action =='add' %}{{ path('admin_passport_photo_create') }}{% elseif action == 'edit' %}{{ path('admin_passport_photo_edit', {'id': passport_photo.id}) }}{% endif %}"
+          enctype="multipart/form-data" method="post">
+        <input id="photo-passport-upload-file" type="file" required name="photo"
+               accept="image/jpeg,image/png,image/gif"><br>
+        <input id="photo-passport-submit-button" type="submit" class="mt-4 submit" value="Сохранить"></input>
+    </form>
+{% endblock content %}
+
+{% block js %}
+<script>
+    function handleFilePhotoPassportSelect(evt) {
+
+        var files = evt.target.files;
+
+        for (var i = 0, f; f = files[i]; i++) {
+
+            if (f.name.length > 30) {
+                var start = f.name.slice(0, 20);
+                var end = f.name.slice(f.name.length - 8, f.name.length)
+                var filename = start + '…' + end;
+            } else {
+                var filename = f.name;
+            }
+
+            if (f.size > 5000000) {
+                $('#photo-passport-error-size').show();
+                $('#photo-passport-submit-button').attr('disabled', 'disabled');
+            } else {
+                $('#photo-passport-error-size').hide();
+                $('#photo-passport-submit-button').removeAttr('disabled');
+            }
+
+
+            if (!(f.type == 'image/jpeg' || f.type == 'image/png' || f.type == 'image/gif')) {
+                console.log('bingo');
+                $('#photo-passport-error-type').show();
+                $('#photo-passport-submit-button').attr('disabled', 'disabled');
+            } else {
+                $('#photo-passport-error-type').hide();
+                $('#photo-passport-submit-button').removeAttr('disabled');
+            }
+        }
+    }
+
+    document.getElementById('photo-passport-upload-file').addEventListener('change', handleFilePhotoPassportSelect, false);
+</script>
+{% endblock %}

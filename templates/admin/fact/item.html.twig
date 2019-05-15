@@ -1,0 +1,50 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+        <a class="btn btn-secondary float-right" href="{{ path('admin_fact_list') }}"><i class="fa fa-arrow-left"></i> Назад</a>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                {% if action =='add' %}
+                    <h1 class="mt-5">Добавить новый факт</h1>
+                    <p class="lead"></p>
+                {% elseif action == 'edit' %}
+                    <h1 class="mt-5">Редактировать факт</h1>
+                    <p class="lead"></p>
+                {% endif %}
+            </div>
+        </div>
+
+
+    <datalist id="options">
+        {% for option in options %}
+            <option value="{{ option }}">
+        {% endfor %}
+    </datalist>
+
+    <datalist id="measures">
+        {% for measure in measures %}
+            <option value="{{ measure }}">
+        {% endfor %}
+    </datalist>
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+{% endblock content %}
+
+{% block js %}
+    <script>
+        $(function() {
+            $('textarea').froalaEditor();
+        });
+    </script>
+{% endblock js %}
+

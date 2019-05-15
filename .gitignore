@@ -1,0 +1,31 @@
+
+###> symfony/framework-bundle ###
+.env
+/public/bundles/
+/public/upload/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+.idea
+.directory
+
+/var/cache/*
+/var/logs/*
+/vendor/*
+
+/web/cache/*
+/web/uploads/images/*
+
+!.gitkeep
+###> symfony/web-server-bundle ###
+.web-server-pid
+###< symfony/web-server-bundle ###
+/nbproject/
+/.settings/
+.project
+.buildpath
+*.kdev4
+.kdev4
+
+

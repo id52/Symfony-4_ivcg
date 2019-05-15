@@ -1,0 +1,22 @@
+<section id="document" class="bg-gray mt-0 mb-0 pb-5 pt-4">
+    <div class="container justify-content-center text-center align-content-center">
+        <header class="text-center no-margin-bottom">
+            <h2 class="text-dark">
+                <img alt="" src="/img/1x1.png" data-src="/img/documents.png">&nbsp;
+                <span>{{ visa.documentsTitle }}</span>
+            </h2>
+        </header>
+
+        <div class="href" id="document-show">
+            Смотреть &nbsp;<i class="fa fa-angle-right"></i>
+        </div>
+
+        <div class="href" id="document-hide">
+            Свернуть &nbsp;<i class="fa fa-angle-down"></i>
+        </div>
+
+        <div class="text-left document-check bg-white mt-4 px-5 py-4" id="document-text">
+            {{ visa.documentList|raw }}
+        </div>
+    </div>
+</section>

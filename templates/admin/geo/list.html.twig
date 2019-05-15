@@ -1,0 +1,57 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+    <a class="btn btn-secondary float-right" href="{{ path('admin_geo_create') }}"><i class="fa fa-plus"></i> Добавить</a>
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="mt-5">Геолокации</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+
+    {% if pagerfanta.currentPageResults|length %}
+        <table class="table table-stripped table-sm">
+
+            <thead>
+            <th>№</th>
+            <th>Отображаем?</th>
+            <th>Город</th>
+            <th>Регион</th>
+            <th>Родительный падеж</th>
+            <th>Телефон</th>
+            <th>Хост</th>
+            <th>Видео</th>
+            <th class="float-right"></th>
+            </thead>
+
+            <tbody>
+
+            {% for geo in pagerfanta.currentPageResults %}
+                <tr>
+                    <td>{{ geo.id }}</td>
+                    <td>{% if geo.isVisible %} Да {% else %} Нет {% endif %}</td>
+                    <td>{{ geo.city }}</td>
+                    <td>{{ geo.region }}</td>
+                    <td>{{ geo.genitiveCase }}</td>
+                    <td>{{ geo.phone }}</td>
+                    <td>{{ geo.host }}</td>
+                    <td><a target="_blank" href="{{ geo.videoUri }}">{{ geo.videoUri }}</a></td>
+                   <td class="float-right">
+                       <a href="{{ path('admin_geo_edit', { id : geo.id }) }}"><i class="fa fa-edit"></i></a>
+                        <a href="{{ path('admin_geo_delete', { id : geo.id }) }}"><i class="fa fa-times text-danger"></i></a>
+                   </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% if pagerfanta.haveToPaginate %}
+            <div class="text-center">
+                {{ pagerfanta(pagerfanta, 'twitter_bootstrap4', { prev_message: '←', next_message: '→' }) }}
+            </div>
+        {% endif %}
+    {% else %}
+        Нет данных
+    {% endif %}
+{% endblock content %}

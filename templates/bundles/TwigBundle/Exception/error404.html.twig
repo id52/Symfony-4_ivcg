@@ -1,0 +1,26 @@
+{#<html>#}
+{#<body>#}
+{#<div>#}
+{#404 Страница не найдена!<br>#}
+{#<a href="/">Вернуться на главную</a>#}
+{#</div>#}
+{#</body>#}
+{#</html>#}
+
+
+{% extends '720/layout.html.twig' %}
+{% block content %}
+    {% include '720/menu.html.twig' %}
+    {% include '720/modal.html.twig' %}
+    {% include '720/intro.html.twig' with {'title': '404 Страница не найдена!'} %}
+    {% include '720/consultation_form_1.html.twig' %}
+
+    {#{% include '720/consultation_form_3.html.twig' %}#}
+    {% include '720/footer.html.twig' %}
+{% endblock content %}
+
+
+{% block js %}
+    {{ parent() }}
+
+{% endblock js %}

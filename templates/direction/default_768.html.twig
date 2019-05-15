@@ -1,0 +1,40 @@
+{% extends '768/layout.html.twig' %}
+
+{% if app.request.host != 'ivcg.ru' %}
+    {% block title %}
+        {% if region.headTitleSubdomain is defined %}
+            {{ region.headTitleSubdomain|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+        {% endif %}
+    {% endblock %}
+
+    {% block description %}
+        {% if region.metaDescriptionSubdomain is defined %}
+            {{ region.metaDescriptionSubdomain|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+        {% endif %}
+    {% endblock %}
+{% endif %}
+
+{% block content %}
+    {% include '768/menu.html.twig' %}
+    {% include '768/modal.html.twig' %}
+    {% include 'direction/768/intro.html.twig' %}
+    {% include '768/consultation_form_1.html.twig' %}
+    {% include 'direction/768/advantages.html.twig' %}
+    {% include 'direction/768/flag.html.twig' %}
+    {% include 'direction/768/five_steps.html.twig' %}
+    {% include 'direction/768/consultation_form_direction_1.html.twig' %}
+    {% include 'direction/768/question.html.twig' %}
+    {% include '768/intro2.html.twig' %}
+    {#{% include '768/intro2_slider.html.twig' %}#}
+    {% include '768/advantage.html.twig' with {'title': region.tenAdvantagesMainTitle } %}
+    {% if app.request.host == 'ivcg.ru' %}
+        {% include 'direction/768/text.html.twig' %}
+    {% endif %}
+    {% include 'direction/768/consultation_form_direction_2.html.twig' with {'title': region.consultationFormDirection2 } %}
+    {% include '768/footer.html.twig' %}
+{% endblock content %}
+
+
+{% block js %}
+    {{ parent() }}
+{% endblock js %}

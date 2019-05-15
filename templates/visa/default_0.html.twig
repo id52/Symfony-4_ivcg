@@ -1,0 +1,32 @@
+{% extends '0/layout.html.twig' %}
+{% block content %}
+
+    {% include '0/menu.html.twig' %}
+    {% include '0/modal.html.twig' %}
+    {% include 'direction/0/intro.html.twig' with {'title': visa.introTitle} %}
+    {% include 'visa/0/consultation_form_visa_1.html.twig'  %}
+    {% include 'visa/0/advantages.html.twig' with {'background_class': 'bg-gray'} %}
+    {% include 'visa/0/info.html.twig' %}
+    {% include 'visa/0/document.html.twig' %}
+    {% include 'visa/0/five_steps.html.twig' %}
+    {% include 'direction/0/question.html.twig'  %}
+    {% include '0/intro2.html.twig'  %}
+    {% include '0/advantage.html.twig'  %}
+    {% include '0/care.html.twig' %}
+    {% include 'visa/0/five_circles.html.twig' %}
+
+    {% if app.request.host == 'ivcg.ru' %}
+        {% include 'visa/0/text.html.twig' %}
+    {% endif %}
+
+    {% include 'visa/0/consultation_form_visa_2.html.twig' %}
+    {% include '0/footer.html.twig' %}
+
+{% endblock content %}
+
+
+{% block js %}
+    {{ parent() }}
+{% endblock js %}
+
+

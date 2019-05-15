@@ -1,0 +1,134 @@
+<footer class="main-footer bg-gray p-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="w100p">
+                    <tr>
+                        <td class="align-text-top region-links w-25">
+                            <h4 class="text-dark mb-3">Визы</h4>
+                            <ul class="links list-unstyled">
+
+
+                                {% for region in regions %}
+                                    <li>
+                                        <a href="{{ path('direction', {'slug': region.slug}) }}" class="text-dark">
+
+                                            {% if region.title == 'Африка и Ближний Восток' %}
+                                                Африка и <br> Ближний Восток
+                                            {% else %}
+                                                {{ region.title }}
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td class="align-text-top w-25">
+                            <h4 class="text-dark mb-3">Услуги</h4>
+                            <ul class="links list-unstyled">
+                                <li><a href="/#section-care" class="link-scroll text-dark">Отели</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Авиабилеты</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Приглашения</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Страхование</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Переводы</a></li>
+                            </ul>
+                        </td>
+
+                        <td class="align-text-top w-25">
+                            <h4 class="text-dark mb-3">Информация&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                            <ul class="links list-unstyled">
+                                <li><a href="/#section-care" class="link-scroll text-dark">О нас</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Помощь</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Блог</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Вакансии</a></li>
+                                {% if app.request.host != 'ivcg.ru' %}
+                                    <li><a href="{{ path('contacts') }}" class="link-scroll text-dark">Контакты</a></li>
+                                {% endif %}
+                            </ul>
+                        </td>
+                        <td class="align-text-top w-25">
+                            <h4 class="text-dark mb-3">Партнёрам</h4>
+                            <ul class="links list-unstyled">
+                                <li><a href="#" data-toggle="modal" data-target="#consultation_modal_1"
+                                       class="link-scroll text-dark">Франшиза</a></li>
+                                <li><a href="{{ path('agency') }}" class="text-dark">Агенствам</a></li>
+                                <li><a href="{{ path('organization') }}" class="text-dark">Организациям</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h4 class="mt-4 text-dark" id="join-us">Присоединяйтесь&nbsp;к&nbsp;нам</h4>
+
+                            <ul class="footer-social-signs list-inline">
+                                <li class="list-inline-item">
+                                    <a href="https://www.facebook.com/visoviycenter" target="_blank" title="Facebook">
+                                        <span class=" "><img alt="" src="/img/1x1.png"
+                                                             data-src="/img/icons/facebook.png"></span>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://vk.com/visoviycenter" target="_blank" title="Вконтакте">
+                                        <span class=" "><img alt="" src="/img/1x1.png"
+                                                             data-src="/img/icons/vk-footer.png"
+                                                             class="img-fluid"></span>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://www.instagram.com/ivcg.ru/" target="_blank" title="Instagram">
+                                        <span class=" "><img alt="" src="/img/1x1.png"
+                                                             data-src="/img/icons/instagram.png"
+                                                             class="img-fluid"></span>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" target="_blank" title="Одноклассники">
+                                        <span class=" "><img alt="" src="/img/1x1.png" data-src="/img/icons/ok.png"
+                                                             class="img-fluid"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="btn btn-outline-success btn-success-outer mt-2  text-center justify-content-center align-items-center">
+                                <a href="#"
+                                   class="btn btn-outline-  btn-success-inner text-center justify-content-center align-items-center"
+                                   data-toggle="modal"
+                                   data-target="#consultation_modal_4">
+
+                                    <span class="text-center justify-content-center align-items-center">Ваши идеи и пожелания</span>
+                                </a>
+                            </div>
+                        </td>
+
+                        <td colspan="2">
+                            <span class="h4 mt-4 text-dark" id="call-us">Позвоните&nbsp;нам</span>
+                            <div class="h4">
+                                {% if geo.city=='Россия' %}
+                                    <a class="text-dark" href="tel:+74993466598" id="footer-phone">
+                                        8 (499) 346 65 98
+                                    </a>
+                                {% else %}
+                                    <a class="text-dark" href="tel:+73832140370" id="footer-phone">
+                                        +7&nbsp;(383)&nbsp;2-140-370&nbsp;
+                                    </a>
+                                {% endif %}
+                            </div>
+                            <a class="text-info" href="mailto:info@ivcg.ru" id="footer-email">
+                                info@ivcg.ru
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div class="mt-4 gray"> Международный визовый центр <br> - ФЕДЕРАЛЬНАЯ СЕТЬ ВИЗОВЫХ
+                                ЦЕНТРОВ<br>
+                                Мы оформляем визы по всей России в 65 стран мира!<br>
+                            </div>
+                            <br>
+                            <a class="text-dark u" href="#">Политика конфиденциальности</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div> <!--//container -->
+</footer>

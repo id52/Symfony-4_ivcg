@@ -1,0 +1,3 @@
+for img in *.jpg; do
+    convert $img -quality 40 $img
+done 

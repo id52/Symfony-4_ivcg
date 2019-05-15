@@ -1,0 +1,44 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+    <a class="btn btn-secondary float-right" href="{{ path('admin_quiz_type_create') }}"><i class="fa fa-plus"></i> Добавить</a>
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="mt-5">Типы вопросов</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+
+    {% if pagerfanta.currentPageResults|length %}
+        <table class="table table-stripped table-sm">
+
+            <thead>
+                <th>№</th>
+                <th>Тип</th>
+                <th class="float-right"></th>
+            </thead>
+
+            <tbody>
+                {% for quiz_type in pagerfanta.currentPageResults %}
+                    <tr>
+                        <td>{{ quiz_type.id }}</td>
+                        <td>{{ quiz_type.title }}</td>
+                        <td class="float-right">
+                            <a href="{{ path('admin_quiz_type_edit', { id : quiz_type.id }) }}"><i class="fa fa-edit"></i></a>
+                            <a href="{{ path('admin_quiz_type_delete', { id : quiz_type.id }) }}"><i class="fa fa-times text-danger"></i></a>
+                       </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if pagerfanta.haveToPaginate %}
+            <div class="text-center">
+                {{ pagerfanta(pagerfanta, 'twitter_bootstrap4', { prev_message: '←', next_message: '→' }) }}
+            </div>
+        {% endif %}
+    {% else %}
+        Нет данных
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,46 @@
+{% extends '480/layout.html.twig' %}
+
+
+
+{% block title %}
+    {% if app.request.host == 'ivcg.ru' %}
+        {{ geo.headTitleOrganization }}
+    {% else %}
+        {{ geo.headTitleSubdomainOrganization|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+    {% endif %}
+{% endblock %}
+
+{% block description %}
+    {% if app.request.host == 'ivcg.ru' %}
+        {{ geo.metaDescriptionOrganization }}
+    {% else %}
+        {{ geo.metaDescriptionSubdomainOrganization|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+    {% include '480/menu.html.twig' %}
+    {% include '480/modal.html.twig' %}
+    {% include 'organization/480/intro.html.twig' %}
+    {% include 'organization/480/consultation_form_organization.html.twig' %}
+    {% include 'organization/480/square.html.twig' %}
+    {% include 'organization/480/intro2.html.twig' %}
+    {% include 'organization/480/list.html.twig' %}
+    {% include '480/flag.html.twig' with {
+                                        'title': 'Мы оформим визы и организуем<br> поездки в такие страны',
+                                        'subtitle': '',
+                                        'subsubtitle': '',
+                                        'section_class': 'mt-4 mb-2 pt-0'
+                                        }
+    %}
+    {% include 'organization/480/intro3.html.twig' %}
+    {% include 'organization/480/companies.html.twig' %}
+    {% include 'organization/480/five_steps.html.twig' %}
+    {% include 'organization/480/intro4.html.twig' %}
+    {% include '480/footer.html.twig' %}
+
+
+
+    <div id="join-upload-file"></div>
+{% endblock content %}

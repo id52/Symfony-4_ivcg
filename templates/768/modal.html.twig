@@ -1,0 +1,478 @@
+<!-- Modal-->
+<div id="application_has_been_sent_successfully" tabindex="-1" role="dialog" 
+     aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center align-items-center justify-content-center">
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="modal-body form-inline form text-center align-items-center justify-content-center">
+                <form class="form text-center align-items-center justify-content-center">
+                    <div class="form-group text-center align-items-center justify-content-center">
+                        <span class="h3">Спасибо,<br> ваша&nbsp;заявка&nbsp;отправлена!</span>
+                        <br>
+
+                        <div class="h4">Долго&nbsp;ждать?<br> Наберите&nbsp;нас&nbsp;прямо&nbsp;сейчас<br><br>
+                            <a href="tel:{{ geo.phone }}" class="text-dark phone-link">
+                                <span class="b phone_roistat_{{ geo.host }} phone_2gis_{{ geo.host }} phone_straight_{{ geo.host }}">
+                                        {{ geo.phone }}
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center align-items-center justify-content-center mt-3">
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="btn-lg btn-success submit">
+                            Хорошо
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{#{% if specialists is defined %}#}
+    {#{% for key, specialist in specialists %}#}
+        {#<div id="video_modal_specialist_{{ specialist.id }}" tabindex="-1" role="dialog"#}
+             {#aria-hidden="true"#}
+             {#class="modal modal-big fade  ">#}
+            {#<div role="document" class="modal-dialog">#}
+                {#<div class="modal-content">#}
+                    {#<div class="modal-header ">#}
+                        {#<span class="h5 modal-title pl-4"><span>{{ specialist.name }}</span></span>#}
+                        {#<button type="button" data-dismiss="modal" aria-label="Close" class="close"><span#}
+                                    {#aria-hidden="true"></span></button>#}
+                    {#</div>#}
+
+
+                    {#<div class="modal-body form-inline text-center align-items-center justify-content-center">#}
+                        {#{% if specialist.embedVideo %}#}
+                            {#{{ specialist.embedVideo(1000, 500)|raw }}#}
+                        {#{% else %}#}
+                            {#<img alt="" src="/img/1x1.png" data-src="{{ specialist.photoUri }}">#}
+                        {#{% endif %}#}
+
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#{% endfor %}#}
+{#{% endif %}#}
+
+<div id="consultation_modal_franchise" tabindex="-1" role="dialog"  aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center align-items-center justify-content-center">
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="h3 modal-title  text-center align-items-center justify-content-center "><span>Заказать обратный<br> звонок</span></s
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="modal-body form-inline  text-center align-items-center justify-content-center">
+                <form id="consultation_form_modal_franchise" action="#"
+                      class="form text-center align-items-center justify-content-center" method="post">
+
+                    <input type="hidden" name="event" value="callback_modal_form">
+                    <input type="hidden" name="type" value="franchise">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required pattern="[A-zА-я]{3,}[A-zА-я-\s]*" >
+
+                        <input  type="text" name="phone" pattern="[\+]*[0-9]+" placeholder="Ваш телефон" required>
+                        <button type="submit" class="mt-3 btn-lg btn-success submit">Заказать звонок</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="consultation_modal_1" tabindex="-1" role="dialog"  aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center align-items-center justify-content-center">
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="h3 modal-title  text-center align-items-center justify-content-center "><span>Заказать обратный<br> звонок</span></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="modal-body form-inline  text-center align-items-center justify-content-center">
+                <form id="consultation_form_modal_1" action="#"
+                      class="form text-center align-items-center justify-content-center" method="post">
+
+                    <input type="hidden" name="event" value="callback_modal_form">
+                    <input type="hidden" name="type" value="callback">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required pattern="[A-zА-я]{3,}[A-zА-я-\s]*" >
+
+                        <input  type="text" name="phone" pattern="[\+]*[0-9]+" placeholder="Ваш телефон" required>
+                        <button type="submit" class="mt-3 btn-lg btn-success submit">Заказать звонок</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="consultation_modal_2" tabindex="-1" role="dialog"  aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog text-center align-items-center justify-content-center">
+        <div class="modal-content">
+            <div class="modal-header text-center align-items-center justify-content-center">
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="h-6 modal-title  text-center align-items-center justify-content-center "><span>Получить бесплатную<br> консультацию</span></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+
+
+
+            <div class="modal-body form-inline text-center align-items-center justify-content-center">
+                <form id="consultation_form_modal_2" action="#"
+                      class="form text-center align-items-center justify-content-center" method="post">
+
+                    <input type="hidden" name="event" value="country_modal_form">
+                    <input type="hidden" name="country" >
+                    <input type="hidden" name="type" value="application">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required pattern="[A-zА-я]{3,}[A-zА-я-\s]*" >
+                        <input  type="text" name="phone" pattern="[\+]*[0-9]+" placeholder="Ваш телефон" required>
+                        <button type="submit" class="mt-3 btn-lg btn-success submit">Отправить заявку</button>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="consultation_modal_3" tabindex="-1" role="dialog"  aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center align-items-center justify-content-center">
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="h3 modal-title  text-center align-items-center justify-content-center "><span>Присоединиться</span></span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="modal-body form-inline text-center align-items-center justify-content-center">
+                <form id="consultation_form_modal_3" action="#" enctype="multipart/form-data"
+                      class="form text-center align-items-center justify-content-center" method="post">
+
+                    <input type="hidden" name="event" value="join_modal_form">
+                    <input type="hidden" name="type" value="join">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input type="text" name="name" required placeholder="Ваше имя">
+
+                        <input type="text" name="phone" required pattern="[\+]*[0-9]+" placeholder="Ваш телефон">
+
+                        <label class="mt-2 modal-label-passport">
+                            Ваша фотография с паспортом
+                        </label>
+
+                        <div class="mt-1 text-danger" id="join-error-size">
+                            Размер файла должен быть меньше 5 Мб
+                        </div>
+
+                        <div class="mt-1 text-danger" id="join-error-type">
+                            Допустимые форматы файла: jpeg, png или gif
+                        </div>
+
+                        <label class="mt-2 btn-lg btn-primary btn-shadow text-white">
+                            <span class="pl-5">Загрузить файл</span>
+                            <input id="join-upload-file" type="file" hidden required name="photo" accept="image/jpeg,image/png,image/gif">
+                        </label>
+
+                        <label class="text-primary" id="join-attached-file">Файл не выбран</label>
+
+                        <textarea rows="4"  class="form-control w-100 mt-3" name="commentary" placeholder="Комментарий"
+                                  required></textarea>
+                        <button type="submit" class="mt-4 btn-lg btn-success submit"><span>Присоединиться</span></button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="consultation_modal_4" tabindex="-1" role="dialog"  aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <span class="h3 modal-title  text-center align-items-center justify-content-center ">Ваши идеи и пожелания</span>
+                        </td>
+                    </tr>
+                </table>
+                            </div>
+
+            <div class="modal-body form-inline text-center align-items-center justify-content-center">
+                <form id="consultation_form_modal_4" action="#" enctype="multipart/form-data"
+                      class="form text-center align-items-center justify-content-center" method="post">
+
+                    <input type="hidden" name="event" value="ideas_and_wishes_modal_form">
+                    <input type="hidden" name="type" value="wish">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required pattern="[A-zА-я]{3,}[A-zА-я-\s]*" >
+
+                        <input  type="text" name="phone" pattern="[\+]*[0-9]+" placeholder="Ваш телефон" required>
+
+                        <textarea class="form-control mt-3" name="commentary" placeholder="Пожелание"
+                                  required></textarea>
+
+                        <button type="submit" class="mt-3 btn-lg btn-success submit">Отправить</button>
+
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div id="consultation_modal_5" tabindex="-1" role="dialog"  aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog text-center align-items-center justify-content-center">
+        <div class="modal-content">
+            <div class="modal-header text-center align-items-center justify-content-center">
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="h3 modal-title  text-center align-items-center justify-content-center ">Отправить заявку</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="modal-body form-inline text-center align-items-center justify-content-center">
+                <form id="consultation_form_modal_5" action="#"
+                      class="form text-center align-items-center justify-content-center" method="post">
+
+                    <input type="hidden" name="event" value="country_modal_form">
+                    <input type="hidden" name="country" >
+                    <input type="hidden" name="type" value="application">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required pattern="[A-zА-я]{3,}[A-zА-я-\s]*" >
+                        <input  type="text" name="phone" pattern="[\+]*[0-9]+" placeholder="Ваш телефон" required>
+                        <button type="submit" class="mt-3 btn-lg btn-success submit">Отправить</button>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div id="consultation_modal_6" tabindex="-1" role="dialog"  aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog text-center align-items-center justify-content-center">
+        <div class="modal-content">
+            <div class="modal-header text-center align-items-center justify-content-center">
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="h3 modal-title  text-center align-items-center justify-content-center ">Отправить заявку</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="modal-body form-inline text-center align-items-center justify-content-center">
+                <form id="consultation_form_modal_6" action="#"
+		    class="form text-center align-items-center justify-content-center" method="post">
+		    
+		    <input type="hidden" name="event" value="consultation_form_agency">
+                    <input type="hidden" name="type" value="agency">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required pattern="[A-zА-я]{3,}[A-zА-я-\s]*" >
+                        <input  type="text" name="phone" pattern="[\+]*[0-9]+" placeholder="Ваш телефон" required>
+                        <button type="submit" class="mt-3 btn-lg btn-success submit">Отправить</button>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="consultation_modal_7" tabindex="-1" role="dialog"  aria-hidden="true"
+     class="modal fade">
+    <div role="document" class="modal-dialog text-center align-items-center justify-content-center">
+        <div class="modal-content">
+            <div class="modal-header text-center align-items-center justify-content-center">
+                <table class="w100p">
+                    <tr>
+                        <td>
+                            <button type="button" data-dismiss="modal" aria-label="Close" class="close float-right"><span aria-hidden="true"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="h3 modal-title  text-center align-items-center justify-content-center ">Отправить заявку</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="modal-body form-inline text-center align-items-center justify-content-center">
+                <form id="consultation_form_modal_7" action="#"
+				class="form text-center align-items-center justify-content-center" method="post">
+					
+					<input type="hidden" name="event" value="consultation_form_organization">
+                    <input type="hidden" name="type" value="agency">
+                    {% if geo is defined %}
+                        <input type="hidden" name="geo" value="{{ geo }}">
+                        <input type="hidden" name="host" value="{{ geo.host }}">
+                    {% endif %}
+
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required pattern="[A-zА-я]{3,}[A-zА-я-\s]*" >
+                        <input  type="text" name="phone" pattern="[\+]*[0-9]+" placeholder="Ваш телефон" required>
+                        <button type="submit" class="mt-3 btn-lg btn-success submit">Отправить</button>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

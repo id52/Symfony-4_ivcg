@@ -1,0 +1,18 @@
+<section id="intro">
+
+    {% include '768/direction.html.twig' %}
+
+    <div class="container">
+        <div class="intro-text h1 margin-auto">
+
+                {% if app.request.host == 'ivcg.ru' %}
+                    Виза {{ visa.accusativeTitleWithPreposition }} в два раза быстрее и<br>
+                    проще, чем при самостоятельном<br>
+                    получении. Гарантия 99,98%!
+                {% else %}
+                    Виза {{ visa.accusativeTitleWithPreposition }} {{ geo.prepositionalCaseWithPrepositionLow }} в два раза быстрее и проще, чем при самостоятельном получении. Гарантия 99,98%!
+                {% endif %}
+
+        </div><!--intro-text-->
+    </div> <!-- //container -->
+</section><!-- #intro -->

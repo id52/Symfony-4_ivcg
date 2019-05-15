@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="favicon.png" type="image/png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.png"/>
+    <meta data-screen-width="480" name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="robots" content="all,follow">
+
+    <title>
+        {% block title %}
+            {% if app.request.host == 'ivcg.ru' %}
+                {{ geo.headTitle }}
+            {% else %}
+                {{ geo.headTitleSubdomain|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+            {% endif %}
+        {% endblock %}
+    </title>
+    <meta name="description" content="
+        {% block description %}
+            {% if app.request.host == 'ivcg.ru' %}
+                {{ geo.metaDescription }}
+            {% else %}
+                {{ geo.metaDescriptionSubdomain|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+            {% endif %}
+        {% endblock %}
+    ">
+
+    <meta name="keywords" content="
+            {% if keywords is defined %}
+                    {{ keywords }}
+            {% else %}
+                Закажите визу в любую страну у ведущих специалистов своей отрасли: экономим вам до 7 дней, на 99,98% гарантируем получение визы благодаря уникальной системе контроля
+            {% endif %}
+    ">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118590713-1"></script>
+    <script defer src="/js/yandex_metrika.js?{{ revision }}"></script>
+    <script defer src="/js/google_analytics.js?{{ revision }}"></script>
+    <script defer src="/js/roistat.js?{{ revision }}"></script>
+
+
+    <link rel="stylesheet" href="/css/bootstrap.css?{{ revision }}">
+    <link rel="stylesheet" href="/css/custom_0.css?{{ revision }}">
+</head>
+
+<body>
+{% block content %}
+{% endblock content %}
+
+<div id="scrollTop">
+    <div class="d-flex align-items-center justify-content-end">
+        {#<i class="fa fa-long-arrow-up"></i> #}
+        <span class="h5 text-white">↑ &nbsp;</span>
+        Наверх
+    </div>
+</div>
+
+{% block js %}
+    <script src="/js/jquery-2.2.4.min.js?{{ revision }}"></script>
+    <script src="/js/app.js?{{ revision }}"></script>
+    <script defer src="/js/front.js?{{ revision }}"></script>
+    <script defer src="/js/0.js?{{ revision }}"></script>
+
+    {% if geo is defined %}
+        {{ geo.jivositeCode|raw }}
+    {% endif %}
+
+{% endblock js %}
+
+</body>
+</html>
+

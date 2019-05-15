@@ -1,0 +1,143 @@
+<footer class="main-footer p-4 pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <table class="w1110px margin-auto">
+                    <tr>
+                        {% if regions is defined %}
+                        <td class="w25p lign-text-top region-links">
+                            <span class="h2 text-dark mb-4"><span>Визы</span></span>
+                            <ul class="links list-unstyled">
+
+                                {% for region in regions %}
+                                    <li>
+                                        <a href="{{ path('direction', {'slug': region.slug}) }}" class="text-dark"
+                                           data-region="{{ region.title }}">
+                                            {{ region.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        {% endif %}
+                        <td class="w25p align-text-top">
+                            <span class="h2 text-dark mb-4">Услуги</span>
+                            <ul class="links list-unstyled">
+                                <li><a href="/#section-care" class="link-scroll text-dark">Отели</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Авиабилеты</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Приглашения</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Страхование</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Переводы</a></li>
+                            </ul>
+                        </td>
+                        <td class="w25p align-text-top">
+                            <span class="h2 text-dark mb-4">Информация</span>
+                            <ul class="links list-unstyled">
+                                <li><a href="/#section-care" class="link-scroll text-dark">О нас</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Помощь</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Блог</a></li>
+                                <li><a href="/#section-care" class="link-scroll text-dark">Вакансии</a></li>
+                                {% if app.request.host != 'ivcg.ru' %}
+                                    <li><a href="{{ path('contacts') }}" class="link-scroll text-dark">Контакты</a></li>
+                                {% endif %}
+                            </ul>
+                        </td>
+                        <td class="w25p align-text-top">
+                            <span class="h2 text-dark mb-4">Партнёрам</span>
+                            <ul class="links list-unstyled">
+                                <li><a href="#" data-toggle="modal" data-target="#consultation_modal_1" class="link-scroll text-dark">Франшиза</a></li>
+                                <li><a href="{{ path('agency') }}" class="text-dark">Агенствам</a></li>
+                                <li><a href="{{ path('organization') }}" class="text-dark">Организациям</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="align-text-top" colspan="2">
+                            <div class="gray"> Международный визовый центр <br> - ФЕДЕРАЛЬНАЯ СЕТЬ ВИЗОВЫХ ЦЕНТРОВ<br>
+                                Мы оформляем визы по всей России в 65 стран мира!<br>
+                            </div>
+                            <br>
+                            <a class="text-dark u" href="#">Политика конфиденциальности</a>
+                        </td>
+                        <td class="align-text-top">
+
+                            <table class="w100p">
+                                <tr>
+                                    <td>
+                                        <span class="h2 text-dark" id="call-us">Позвоните&nbsp;нам</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-text-bottom">
+                                        <span class="h2">
+                                            <a class="text-dark phone-link" href="tel:{{ geo.phone }}" id="footer-phone">
+                                                <span class="phone_roistat_{{ geo.host }} phone_2gis_{{ geo.host }} phone_straight_{{ geo.host }}">{{ geo.phone }}</span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="text-info" href="mailto:{{ geo.email }}" id="footer-email">
+                                            <span>{{ geo.email }}</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                        <td class="align-text-top">
+                            <table class="w100p">
+                                <tr>
+                                    <td>
+                                        <span class="text-dark" id="join-us"><span>Присоединяйтесь&nbsp;к&nbsp;нам</span></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <ul class="footer-social-signs list-inline">
+                                            <li class="list-inline-item">
+                                            <a href="{{ geo.fbLink }}" target="_blank" title="Facebook">
+                                            <span class=" "><img alt="" src="/img/1x1.png" data-src="/img/icons/facebook.png"  ></span>
+                                            </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                            <a href="{{ geo.vkLink }}" target="_blank" title="Вконтакте">
+                                            <span class=" "><img alt="" src="/img/1x1.png" data-src="/img/icons/vk-footer.png"  class="img-fluid"></span>
+                                            </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                            <a href="{{ geo.instLink }}" target="_blank" title="Instagram">
+                                            <span class=" "><img alt="" src="/img/1x1.png" data-src="/img/icons/instagram.png"  class="img-fluid"></span>
+                                            </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                            <a href="#" target="_blank" title="Одноклассники">
+                                            <span class=" "><img alt="" src="/img/1x1.png" data-src="/img/icons/ok.png"  class="img-fluid"></span>
+                                            </a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="btn btn-outline-success btn-success-outer mt-2  text-center justify-content-center align-items-center">
+                                            <a href="#" class="btn btn-outline-  btn-success-inner text-center justify-content-center align-items-center" data-toggle="modal"
+                                            data-target="#consultation_modal_4">
+
+                                                <span class="text-center justify-content-center align-items-center">Ваши идеи и пожелания</span>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+    </div> <!--//container -->
+</footer>

@@ -1,0 +1,162 @@
+<section id="contacts_map" class="mt-0 pt-5  mb-0 pb-0 bg-gray">
+    <div class="container text-center text-white px-5">
+        <div class="h2">
+            Наши контакты
+        </div>
+        <div class="h3">
+            Доверьтесь опыту профессионалов!
+        </div>
+        <div class="pl-5 pr-0 bg-white map py-4 text-left my-5">
+            <table class="main-table text-gray">
+                <tr>
+                    <td>
+                        <div class="h3">Центральный офис</div>
+                        <img src="/img/line.png">
+                        <table class="mt-2">
+                            <tr>
+                                <td class="align-text-top mr-2">
+                                    <i class="fa fa-map-marker text-primary"></i>
+                                </td>
+                                <td>
+                                    <a target="_blank">
+                                        {{ geo.contactAddress|raw }}
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-text-top text-primary mr-2">
+                                    <i class="fa fa-phone"></i>
+                                </td>
+                                <td>
+                                    <a class="phone-link" href="tel:{{ geo.phone }}">
+                                        <span class="phone_roistat_{{ geo.host }} phone_2gis_{{ geo.host }} phone_straight_{{ geo.host }}">{{ geo.phone }}</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="align-text-top text-primary">
+                                    <i class="fa fa-search mr-1"></i>
+                                </td>
+                                <td>
+                                    <a class="text-gray" href="mailto:{{ geo.email }}">{{ geo.email }}<a>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+
+                        <div class="h3">Часы работы</div>
+                        <img src="/img/line.png">
+                        <table class="mt-2">
+                            <tr>
+                                <td>
+                                    ПН-ПТ:&nbsp;
+                                </td>
+                                <td>
+                                    09:00 - 19:00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    СБ:
+                                </td>
+                                <td>
+                                    11:00 - 16:00
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    ВС:
+                                </td>
+                                <td>
+                                    Выходной
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+
+                        <ul class="footer-social-signs list-inline">
+                            <li class="list-inline-item">
+                                <a href="{{ geo.fbLink }}" target="_blank" title="Facebook">
+                                    <span class=""><img alt="" src="/img/icons/facebook_gray.png"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{{ geo.vkLink }}" target="_blank" title="Вконтакте">
+                                    <span class=" "><img alt="" src="/img/icons/vk_gray.png" class="img-fluid"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="{{ geo.instLink }}" target="_blank" title="Instagram">
+                                    <span class=" "><img alt="" src="/img/icons/instagram_gray.png"
+                                                         class="img-fluid"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div><!-- //containter-->
+
+
+    <div class="container-fluid text-center text-white m-0 p-0 " style="position: relative">
+        <table class="margin-auto">
+            <tr>
+                <td>
+                    <img src="{{ geo.contactMapUri }}" height="494px">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img class="marker marker_{{ geo.host }}" src="/img/contacts/marker.png">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="text-left outter_close tip tip_{{ geo.host }} m-0" id="tip_map_hover">
+                        <img src="/img/contacts/hover.png" class="tip-image">
+                        <span class="tip-title text-white h3">Центральный офис</span>
+                        <div class="address px-3">
+                            <table class="text-dark mt-0 h5">
+                                <tr>
+                                    <td class="align-text-top">
+                                        <i class="fa fa-map-marker text-primary"></i>
+                                    </td>
+                                    <td class="pl-2">
+                                        <a target="_blank" class="m-0">
+                                            {{ geo.contactAddress|raw }}
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-text-top text-primary pt-2">
+                                        <i class="fa fa-phone"></i>
+                                    </td>
+                                    <td class="pt-2 pl-2">
+                                        <a class="phone-link" href="tel:{{ geo.phone }}">
+                                            <span class="phone_roistat_{{ geo.host }} phone_2gis_{{ geo.host }} phone_straight_{{ geo.host }}">{{ geo.phone }}</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-text-top text-primary pt-2">
+                                        <i class="fa fa-search"></i>
+                                    </td>
+                                    <td class="pt-2 pl-2">
+                                        <a class="text-dark" href="mailto:{{ geo.email }}">{{ geo.email }}<a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div> <!-- //container-fluid -->
+    </div><!-- //containter-->
+</section>
+
+

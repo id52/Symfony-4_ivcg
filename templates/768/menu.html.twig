@@ -1,0 +1,165 @@
+{% if geo is defined and geo.City != 'Россия' %}
+    <div class="select-city container-fluid justify-content-center text-center align-content-center"
+         style="display:none;">
+        <span class="text-dark">Вы из</span>
+        <span class="text-white">
+                —
+            {{ geo.genitiveCase }}?
+            </span>
+        <a class="ml-5 btn btn-sm btn-default text-blue yes" data-geo-id="{{ geo.id }}">Да</a>
+        <span class="ml-2 text-white no" id="select-city-no">Нет, изменить город</span>
+        <div class="close"></div>
+    </div>
+{% endif %}
+
+<div class="container w1110px">
+    <!-- navbar-->
+    <header class="header">
+        <div class="row no-gutters">
+            <div class="col float-left text-left">
+                <ul class="list-inline">
+                    <li class="list-inline-item
+                        {% if app.request.attributes.get('_route') =='agency' %}bg-current-menu{% endif %}">
+                        <a href="{{ path('agency') }}"
+                           class="pl-0 nav-link link-scroll
+                            {% if app.request.attributes.get('_route') =='agency' %}text-white{% else %}text-dark{% endif %}">
+                            <span class="icon">
+                                {% if app.request.attributes.get('_route') == 'agency' %}
+                                    <img alt="" src="/img/1x1.png" data-src="/img/icons/city_white.png" class="img-fluid ml-3">
+                                {% else %}
+                                    <img alt="" src="/img/1x1.png" data-src="/img/icons/city.png" class="img-fluid ml-3">
+                                {% endif %}
+                                Агентствам
+                            </span>
+                        </a>
+                    </li>
+
+
+                    <li class="list-inline-item
+                        {% if app.request.attributes.get('_route') =='organization' %}bg-current-menu{% endif %}">
+                        <a href="{{ path('organization') }}"
+                           class="nav-link link-scroll
+                            {% if app.request.attributes.get('_route') =='organization' %}text-white{% else %}text-dark{% endif %}">
+                            <span class="icon">
+                                <img alt="" src="/img/1x1.png"
+                                     data-src="{% if app.request.attributes.get('_route') =='organization' %}/img/icons/agent_white.png{% else %}/img/icons/agent.png{% endif %}"
+                                     class="img-fluid">Организациям</span>
+
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" data-toggle="modal" data-target="#consultation_modal_franchise"
+                           class="nav-link link-scroll text-dark">
+                            <span class="icon"><img alt="" src="/img/1x1.png" data-src="/img/icons/franchise.png"
+                                                    class="img-fluid">Франшиза</span>
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col float-right text-right" id="menu-right">
+
+
+                <ul class="list-inline p-0">
+
+                    {% if geo is defined %}
+                        <li class="list-inline-item geo-city-li" id="your-city">
+                            <a href="#" class="nav-link link-scroll text-dark">
+                            <span class="icon">
+                                <img alt="" src="/img/icons/point.png" class="img-fluid">Ваш город:
+                            </span>
+                            </a>
+
+                        </li>
+
+                        <li class="list-inline-item menu-has-children geo-city-li">
+                            <a href="#" class="nav-link link-scroll text-dark">
+                            <span class="icon" id="geo_city">
+
+                                {{ geo.city }}
+
+
+                                <img alt="" src="/img/angle_down.png" class="img-fluid">
+                            </span>
+                            </a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a href="{{ geo.vkLink }}" class="nav-link link-scroll mr-0 pr-0" target="_blank">
+                            <span class="icon menu-icon"><img alt="" src="/img/icons/vk.png"
+                                                              class="img-fluid mr-0 pr-0"></span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+
+                {% if geos is defined %}
+
+                    <div id="city-footer-hideable" class="text-left align-content-center justify-content-center">
+
+                        <input type="text" class="mb-1">
+
+                        {% for geo in geos %}
+
+                            {% if geo.city=='Россия' %}
+                                <span><a class="set-geo-id-cookie text-left mt-1 ml-3" data-geo-id="{{ geo.id }}"
+                                         href="https://{{ geo.host }}/">{{ geo }}</a><br></span>
+                                <hr class="mt-2 mb-0 mx-3">
+                            {% else %}
+                                <span><a class="set-geo-id-cookie text-left mt-1 ml-4" data-geo-id="{{ geo.id }}"
+                                         href="https://{{ geo.host }}/">{{ geo }}</a></span><br>
+                            {% endif %}
+
+
+                        {% endfor %}
+
+
+                    </div><!--//city-footer-hideable-->
+
+                {% endif %}
+
+
+            </div><!--//col-->
+        </div><!-- //row -->
+    </header>
+</div><!-- //.container -->
+
+
+<div class="container-fluid">
+    <div class="row no-gutters">
+        <div class="col">
+            <hr id="menu-hr">
+        </div>
+    </div>
+</div><!-- //.container-fluid -->
+
+
+<div class="container w1110px" id="menu_container_3">
+    <header class="header">
+        <div class="row no-gutters">
+
+
+            <div class="col float-left">
+                <div id="logo" class="float-left">
+                    <a href="/"><img alt="" src="/img/1x1.png" data-src="/img/logo2.png" title=""></a>
+                </div>
+            </div> <!--//col-->
+
+            <div class="col float-right text-right justify-content-center align-items-center ">
+                <div id="phone" class="mt-3">
+                    <span class="text-dark" style="font-size: 1.45rem; font-weight: 600;">
+                            <a href="tel:{{ geo.phone }}" class="text-dark phone-link" id="menu-phone">
+                                <span class="phone_roistat_{{ geo.host }} phone_2gis_{{ geo.host }} phone_straight_{{ geo.host }}">{{ geo.phone }}</span>
+                            </a>
+                    </span>
+                    <br>
+                    <a href="#" data-toggle="modal" data-target="#consultation_modal_1" class="u">Заказать обратный
+                        звонок</a>
+                </div><!--//phone-->
+            </div><!--//col-->
+
+        </div><!-- //row -->
+
+    </header>
+</div>

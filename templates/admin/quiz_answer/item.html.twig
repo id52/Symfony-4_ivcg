@@ -1,0 +1,29 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+        <a class="btn btn-secondary float-right" href="{{ path('admin_region_list') }}"><i class="fa fa-arrow-left"></i> Назад</a>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                {% if action =='add' %}
+                    <h1 class="mt-5">Добавить новый ответ</h1>
+                    <p class="lead"></p>
+                {% elseif action == 'edit' %}
+                    <h1 class="mt-5">Редактировать ответ</h1>
+                    <p class="lead"></p>
+                {% endif %}
+            </div>
+        </div>
+
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends '768/layout.html.twig' %}
+
+{% if app.request.host != 'ivcg.ru' %}
+    {% block title %}
+        {% if visa.headTitleSubdomain is defined %}
+            {{ visa.headTitleSubdomain|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+        {% endif %}
+    {% endblock %}
+
+    {% block description %}
+        {% if visa.metaDescriptionSubdomain is defined %}
+            {{ visa.metaDescriptionSubdomain|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+        {% endif %}
+    {% endblock %}
+{% endif %}
+
+{% block content %}
+
+    {% include '768/menu.html.twig' %}
+    {% include '768/modal.html.twig' %}
+    {% include 'visa/768/intro.html.twig' %}
+    {% include 'visa/768/consultation_form_visa_1.html.twig'  %}
+    {% include 'direction/768/advantages.html.twig' with {'background_class': 'bg-gray'} %}
+
+    {% include 'visa/768/info.html.twig' %}
+
+
+    {% include 'visa/768/document.html.twig' %}
+    {% include 'visa/768/five_steps.html.twig' %}
+
+    {% include 'visa/768/question.html.twig'  %}
+    {% include '768/intro2.html.twig' %}
+    {#{% include '768/intro2_slider.html.twig' %}#}
+    {% include 'visa/768/advantage.html.twig' with {'title': visa.tenAdvantagesMainTitle, 'subtitle': visa.tenAdvantagesSubTitle} %}
+    {% include '768/care.html.twig' %}
+    {% include 'visa/768/five_circles.html.twig' %}
+
+    {% if app.request.host == 'ivcg.ru' %}
+        {% include 'visa/768/text.html.twig' %}
+    {% endif %}
+
+    {% include 'visa/768/consultation_form_visa_2.html.twig' %}
+    {% include '768/footer.html.twig' %}
+{% endblock content %}
+
+
+{% block js %}
+    {{ parent() }}
+{% endblock js %}
+
+

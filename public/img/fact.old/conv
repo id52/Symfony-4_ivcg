@@ -1,0 +1,3 @@
+for img in *.jpeg; do
+    convert $img -resize 100x100 -quality 60 $img
+done 

@@ -1,0 +1,30 @@
+<section id="contacts_team" class="pt-5">
+    <div class="container justify-content-center text-center align-content-center ">
+        <header class="text-center no-margin-bottom">
+            <span class="h2 text-white">Наша команда</span>
+        </header>
+
+        <div class="owl-carousel owl-theme contacts_team_slider justify-content-center text-center align-content-center">
+
+            {% for member in team_members %}
+                <div class="item-holder justify-content-center text-center align-content-center">
+                    <div class="item justify-content-center text-center align-content-center">
+                        <img src="/img/contacts/command-item.png">
+                        <img alt="" src="{{ member.photoURI }}" class="img-fluid avatar">
+
+                        <div class="up">
+
+                            <span class="name h4 text-dar"> {{ member.name }}</span><br>
+                            <img src="/img/line.png"  class="hr">
+                            <span class="text h5 text-gray mt-2"> {{ member.text|raw }}</span>
+                        </div>
+
+
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,10 @@
+<div class="breadcrumbs mb-5">
+    <a href="/" class="text-gray">Главная</a>
+
+    {% if visa is defined %}
+        <a href="{{ path('direction', {'slug': region.slug} ) }}" class="text-gray"> > {{ region.title }}</a>
+        <a href="{{ path('visa', {'region_slug': visa.region.slug, 'slug': visa.slug} ) }}" class="breadcrumbs-active"> > {{ visa.title }}</a>
+    {% else %}
+        <a href="{{ path('direction', {'slug': region.slug} ) }}" class="breadcrumbs-active"> > {{ region.title }}</a>
+    {% endif %}
+</div>

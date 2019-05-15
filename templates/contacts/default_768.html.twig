@@ -1,0 +1,28 @@
+{% extends '768/layout.html.twig' %}
+
+{% block title %}
+    {% if geo.headTitleContacts is defined %}
+        {{ geo.headTitleContacts|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+    {% endif %}
+{% endblock %}
+
+{% block description %}
+    {% if geo.metaDescriptionContacts is defined %}
+        {{ geo.metaDescriptionContacts|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% include '768/menu.html.twig' %}
+    {% include '768/modal.html.twig' %}
+
+    {% if app.request.host == 'ivcg.ru' %}
+        {% include 'contacts/768/intro2.html.twig' %}
+    {% else %}
+        {% include 'contacts/768/intro.html.twig' %}
+        {% include 'contacts/768/map.html.twig' %}
+        {% include 'contacts/768/form.html.twig' %}
+    {% endif %}
+
+    {% include '768/footer.html.twig' %}
+{% endblock content %}

@@ -1,0 +1,63 @@
+<section id="flags" class="mb-3">
+    <div class="container">
+        <div class="row text-white d-flex justify-content-center text-dark text-center">
+            <div class="col">
+                <h2>Поможем сделать шенгенскую визу<br>в любую из 26 стран<br></h2><br>
+                <div class="h3">Туризм. Работа. Учёба</div><br>
+                <div class="h4">C помощью «Международный Визовый Центр» вы сможете подготовить пакет<br> документов под контролем
+                    опытных специалистов, которые помогут<br> минимизировать вероятность отказа и/или назовут его
+                    возможную<br> причину ещё до подачи заявки в консульство.
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <table class="margin-auto mt-0" id="flag-images">
+
+            {% for row in region.visas|batch(3) %}
+
+                <tr class="region-flags" data-region="{{ region }}">
+                    {% for visa in row %}
+                        <td>
+                            <div class="row col-sm-3 d-flex justify-content-center text-center m-0 p-0">
+                                <figure class="flag mx-2 ">
+                                    <a href="{{ path('visa', {'region_slug': visa.region.slug, 'slug': visa.slug}) }}">
+                                        <img alt="" src="/img/1x1.png" data-src="{{ visa.img }}"
+                                             class="big_flag_img">
+                                    </a>
+                                    <div class="figcaption">
+                                        {{ visa }}
+                                    </div>
+                                    <div class="footer-hideable">
+                                        <div class="figcaption">
+                                            &nbsp;
+                                        </div>
+                                        <div class="text-left">
+                                            <span class="gray">&nbsp;&nbsp;Сроки:</span> <span
+                                                    class="b">от 5 дней</span><br>
+                                            <span class="gray">&nbsp;&nbsp;Цена:</span> <span
+                                                    class="b">от {{ visa.price }} ₽</span><br>
+                                        </div>
+                                        <div>
+                                            <a class="btn btn-success text-white get-country-consultation href mt-4 btn-flag"
+                                               data-country="{{ visa }}">Получить консультацию</a>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div> <!--//col -->
+                        </td>
+                    {% endfor %}
+                    {% if row|length==1 %}
+                        <td></td>
+                        <td></td>{% endif %}
+                    {% if row|length==2 %}
+                        <td></td> {% endif %}
+                </tr>
+            {% endfor %}
+
+        </table>
+
+        <br><br><br><br>
+
+    </div> <!--//container-->
+</section>

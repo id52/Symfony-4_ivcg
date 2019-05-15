@@ -1,0 +1,174 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+        <a class="btn btn-secondary float-right" href="{{ path('admin_geo_list') }}"><i class="fa fa-arrow-left"></i> Назад</a>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                {% if action =='add' %}
+                    <h1 class="mt-5">Добавить новую геолокацию</h1>
+                    <p class="lead"></p>
+                {% elseif action == 'edit' %}
+                    <h1 class="mt-5">Редактировать геолокацию</h1>
+                    <p class="lead"></p>
+                {% endif %}
+            </div>
+        </div>
+
+    <datalist id="regions">
+
+        <option value="Адыгея">
+        <option value="Алтай">
+
+        <option value="Амурская область">
+        <option value="Архангельская область">
+        <option value="Астраханская область">
+        <option value="Башкортостан">
+        <option value="Белгородская область">
+        <option value="Брянская область">
+        <option value="Бурятия">
+        <option value="Владимирская область">
+        <option value="Волгоградская область">
+        <option value="Вологодская область">
+        <option value="Воронежская область">
+        <option value="Город Севастополь">
+        <option value="Дагестан">">
+        <option value="Донецкая область">
+        <option value="Еврейская АО">
+
+        <option value="Ивановская область">
+        <option value="Иркутская область">
+        <option value="Калининградская область">
+        <option value="Калужская область">
+        <option value="Карачаево-Черкессия">
+        <option value="Кемеровская область">
+        <option value="Киев">
+        <option value="Кировская область">
+        <option value="Коми">
+        <option value="Костромская область">
+
+        <option value="Курганская область">
+        <option value="Курская область">
+        <option value="Ленинградская область">
+        <option value="Липецкая область">
+        <option value="Луганская область">
+        <option value="МО">
+        <option value="Москва">
+        <option value="Мурманская область">
+        <option value="Нижегородская область">
+        <option value="Новгородская область">
+        <option value="Новосибирская область">
+        <option value="Омская область">
+        <option value="Оренбургская область">
+        <option value="Пензенская область">
+        <option value="Пермская область">
+
+        <option value="Псковская область">
+        <option value="Республика Крым">
+        <option value="Ростовская область">
+        <option value="Рязанская область">
+        <option value="Самарская область">
+        <option value="Санкт-Петербург">
+        <option value="Саратовская область">
+        <option value="Свердловская область">
+        <option value="Северная Осетия">
+        <option value="Смоленская область">
+        <option value="Ставрополье">
+        <option value="Татарстан">
+        <option value="Тверская область">
+        <option value="Томская область">
+        <option value="Тува">
+        <option value="Тульская область">
+        <option value="Тюмень">
+        <option value="Удмуртия">
+        <option value="Ульяновская область">
+
+        <option value="Хакасия">
+
+        <option value="Ханты-Мансийский АО">
+        <option value="Челябинская">
+        <option value="Чувашия">
+        <option value="Ямало-Ненецкий АО">
+        <option value="Ярославская область">
+        <option value="Амурская область">
+        <option value="Астраханская область">
+        <option value="Белгородская область">
+        <option value="Брянская область">
+        <option value="Иркутская область">
+        <option value="Калужская область">
+        <option value="Кировская область">
+        <option value="Курганская область">
+        <option value="Курская область">
+        <option value="Липецкая область">
+        <option value="Магаданская область">
+        <option value="Московская область">
+        <option value="Мурманская область">
+        <option value="Новгородская область">
+        <option value="Омская область">
+        <option value="Орловская область">
+        <option value="Псковская область">
+        <option value="Рязанская область">
+        <option value="Сахалинская область">
+        <option value="Самарская область">
+        <option value="Смоленская область">
+        <option value="Тамбовская область">
+        <option value="Томская область">
+        <option value="Тульская область">
+        <option value="Тюменская область">
+        <option value="Владимирская область">
+        <option value="Вологодская область">
+        <option value="Хакасия">
+        <option value="Адыгея">
+        <option value="Алтай">
+
+        <option value="Чечня">
+        <option value="Мордовия">
+        <option value="Марий Эл">
+        <option value="Крым">
+        <option value="Карелия">
+        <option value="Калмыкия">
+        <option value="Кабардино-Балкария">
+        <option value="Ингушетия">
+
+
+
+        <option value="Алтайский край">
+        <option value="Забайкальский Край">
+        <option value="Камчатский Край">
+        <option value="Краснодарский край">
+        <option value="Красноярский край">
+        <option value="Пермский край">
+        <option value="Приморский край">
+        <option value="Хабаровский край">
+        <option value="Камчатский край">
+        <option value="Хабаровский край">
+
+        <option value="Чукотский АО">
+
+
+
+
+
+
+    </datalist>
+
+
+    <div class="row">
+        <div class="col">
+            {{ geo.embedVideo|raw }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            {{ form_start(form) }}
+            {{ form_rest(form) }}
+            {{ form_row(form.geos) }}
+            {{ form_end(form) }}
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+
+{% endblock content %}
+

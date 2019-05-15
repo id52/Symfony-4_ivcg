@@ -1,0 +1,16 @@
+{% if visa.textMainTitle is not empty and visa.text is not empty %}
+
+    <section id="text" class="bg-white mt-0 pt-5 pb-0 mb-0 px-4">
+        <div class="container justify-content-center text-center align-content-center">
+            <header class="text-center no-margin-bottom">
+                <h3 class="text-dark">
+                    <span>{{ visa.textMainTitle }}</span>
+                </h3>
+            </header>
+            <div class="text-left text-check bg-white mt-4 py-4">
+                {{ visa.text|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+            </div>
+        </div>
+    </section>
+
+{% endif %}

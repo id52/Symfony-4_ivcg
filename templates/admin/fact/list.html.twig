@@ -1,0 +1,50 @@
+{% extends 'admin/layout.html.twig' %}
+{% block content %}
+
+    <a class="btn btn-secondary float-right" href="{{ path('admin_fact_create') }}"><i class="fa fa-plus"></i> Добавить</a>
+
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="mt-5">Факты</h1>
+            <p class="lead"></p>
+        </div>
+    </div>
+
+    {% if pagerfanta.currentPageResults|length %}
+        <table class="table table-stripped table-sm">
+
+            <thead>
+            <th>№</th>
+            <th>Клиент</th>
+            <th>Отзыв</th>
+            <th>Сортировка</th>
+            <th class="float-right"></th>
+            </thead>
+
+            <tbody>
+
+            {% for fact in pagerfanta.currentPageResults %}
+                <tr>
+                    <td>{{ fact.id }}</td>
+                   <td>{{ fact.client }}</td>
+                    <td><a href="{{ fact.vkUri }}">{{ fact.vkUri }}</a></td>
+                    <td>{{ fact.position }}</td>
+                   <td class="float-right">
+
+                       <a href="{{ path('admin_fact_edit', { id : fact.id }) }}"><i class="fa fa-edit"></i></a>
+                        <a href="{{ path('admin_fact_delete', { id : fact.id }) }}"><i class="fa fa-times text-danger"></i></a>
+                   </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% if pagerfanta.haveToPaginate %}
+            <div class="text-center">
+                {{ pagerfanta(pagerfanta, 'twitter_bootstrap4', { prev_message: '←', next_message: '→' }) }}
+            </div>
+        {% endif %}
+    {% else %}
+        Нет данных
+    {% endif %}
+{% endblock content %}

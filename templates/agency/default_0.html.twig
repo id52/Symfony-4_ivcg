@@ -1,0 +1,31 @@
+{% extends '0/layout.html.twig' %}
+
+{% block title %}
+    {% if app.request.host == 'ivcg.ru' %}
+        {{ geo.headTitleAgency }}
+    {% else %}
+        {{ geo.headTitleSubdomainAgency|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+    {% endif %}
+{% endblock %}
+
+{% block description %}
+    {% if app.request.host == 'ivcg.ru' %}
+        {{ geo.metaDescriptionAgency }}
+    {% else %}
+        {{ geo.metaDescriptionSubdomainAgency|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% include '0/menu.html.twig' %}
+    {% include '0/modal.html.twig' %}
+    {% include 'agency/0/intro.html.twig' %}
+    {% include 'agency/0/consultation_form_agency.html.twig' %}
+    {% include 'agency/0/three_rectangles.html.twig' %}
+    {% include 'agency/0/intro2.html.twig' %}
+    {% include 'agency/0/list.html.twig' %}
+    {% include 'agency/0/three_squares.html.twig' %}
+    {% include 'agency/0/agencies.html.twig' %}
+    {% include 'agency/0/intro3.html.twig' %}
+    {% include '0/footer.html.twig' %}
+{% endblock content %}

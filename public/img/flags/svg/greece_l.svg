@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="255pt" height="170pt" viewBox="0 0 255 170" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 0 0 L 254.839844 0 L 254.839844 19 L 0 19 Z M 0 0 "/>
+</clipPath>
+<clipPath id="clip2">
+  <path d="M 0 18 L 254.839844 18 L 254.839844 38 L 0 38 Z M 0 18 "/>
+</clipPath>
+<clipPath id="clip3">
+  <path d="M 0 37 L 254.839844 37 L 254.839844 57 L 0 57 Z M 0 37 "/>
+</clipPath>
+<clipPath id="clip4">
+  <path d="M 0 56 L 254.839844 56 L 254.839844 76 L 0 76 Z M 0 56 "/>
+</clipPath>
+<clipPath id="clip5">
+  <path d="M 0 75 L 254.839844 75 L 254.839844 95 L 0 95 Z M 0 75 "/>
+</clipPath>
+<clipPath id="clip6">
+  <path d="M 0 94 L 254.839844 94 L 254.839844 114 L 0 114 Z M 0 94 "/>
+</clipPath>
+<clipPath id="clip7">
+  <path d="M 0 113 L 254.839844 113 L 254.839844 133 L 0 133 Z M 0 113 "/>
+</clipPath>
+<clipPath id="clip8">
+  <path d="M 0 132 L 254.839844 132 L 254.839844 152 L 0 152 Z M 0 132 "/>
+</clipPath>
+<clipPath id="clip9">
+  <path d="M 0 0 L 254.839844 0 L 254.839844 169.894531 L 0 169.894531 Z M 0 0 "/>
+</clipPath>
+</defs>
+<g id="surface1">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(5.098039%,36.862745%,68.627451%);fill-opacity:1;" d="M 0 0 L 286.695312 0 L 286.695312 18.878906 L 0 18.878906 Z M 0 0 "/>
+</g>
+<g clip-path="url(#clip2)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 0 18.878906 L 286.695312 18.878906 L 286.695312 37.753906 L 0 37.753906 Z M 0 18.878906 "/>
+</g>
+<g clip-path="url(#clip3)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(5.098039%,36.862745%,68.627451%);fill-opacity:1;" d="M 0 37.753906 L 286.695312 37.753906 L 286.695312 56.632812 L 0 56.632812 Z M 0 37.753906 "/>
+</g>
+<g clip-path="url(#clip4)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 0 56.632812 L 286.695312 56.632812 L 286.695312 75.507812 L 0 75.507812 Z M 0 56.632812 "/>
+</g>
+<g clip-path="url(#clip5)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(5.098039%,36.862745%,68.627451%);fill-opacity:1;" d="M 0 75.507812 L 286.695312 75.507812 L 286.695312 94.386719 L 0 94.386719 Z M 0 75.507812 "/>
+</g>
+<g clip-path="url(#clip6)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 0 94.386719 L 286.695312 94.386719 L 286.695312 113.261719 L 0 113.261719 Z M 0 94.386719 "/>
+</g>
+<g clip-path="url(#clip7)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(5.098039%,36.862745%,68.627451%);fill-opacity:1;" d="M 0 113.261719 L 286.695312 113.261719 L 286.695312 132.140625 L 0 132.140625 Z M 0 113.261719 "/>
+</g>
+<g clip-path="url(#clip8)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 0 132.140625 L 286.695312 132.140625 L 286.695312 151.015625 L 0 151.015625 Z M 0 132.140625 "/>
+</g>
+<g clip-path="url(#clip9)" clip-rule="nonzero">
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(5.098039%,36.862745%,68.627451%);fill-opacity:1;" d="M 0 151.015625 L 286.695312 151.015625 L 286.695312 169.894531 L 0 169.894531 Z M 0 0 L 106.183594 0 L 106.183594 94.386719 L 0 94.386719 Z M 0 0 "/>
+</g>
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 42.472656 0 L 63.710938 0 L 63.710938 94.386719 L 42.472656 94.386719 Z M 42.472656 0 "/>
+<path style=" stroke:none;fill-rule:evenodd;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 0 37.753906 L 106.183594 37.753906 L 106.183594 56.632812 L 0 56.632812 Z M 0 37.753906 "/>
+</g>
+</svg>

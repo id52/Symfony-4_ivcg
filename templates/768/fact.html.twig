@@ -1,0 +1,128 @@
+<section id="results" class="results bg-gray mb-4 pb-4 pt-5">
+    <div class="container text-center justify-content-center align-items-center">
+        <h2 class="text-dark m-4"><span>Получайте визы даже после отказов<br> в других компаниях</span></h2>
+        <span class="text-dark m-4 h3">22 интересных случая из нашей практики</span>
+
+
+        <div class="owl-carousel owl-theme results-slider w1110px margin-auto">
+
+            {% for fact in facts %}
+                <div class="item-holder  text-center justify-content-center align-items-center">
+                    <div class="item  text-center justify-content-center align-items-center">
+                        <div class="row">
+                            <div class="col">
+                                <div class="row d-flex justify-content-center align-items-center text-center ">
+                                    <div class="col">
+
+                                        <div class="avatar">
+                                            {% if fact.photoUri is empty %}
+                                                {% if fact.sex == 'male' %}
+                                                    <img alt="" src="/img/1x1.png" data-src="/img/fact/default-avatar-m_100_100.jpg">
+                                                {% elseif fact.sex == 'female' %}
+                                                    <img alt="" src="/img/1x1.png" data-src="/img/fact/default-avatar-f_100_100.jpg">
+                                                {% endif %}
+                                            {% else %}
+                                                <img alt="" src="/img/1x1.png" data-src="{{ fact.photoUri }}">
+                                            {% endif %}
+                                        </div>
+
+                                        {% if fact.vkUri is not empty %}
+                                            <a target="_blank" class="float-right mr-5" href="{{ fact.vkUri }}"> Читать отзыв клиента</a>
+                                            <span class="icon float-right">
+                                                <img alt="" src="/img/1x1.png" data-src="/img/read_testimonial.png">
+                                            </span><br>
+                                        {% endif %}
+
+
+                                            <br><br>
+                                        <div class="result-client-name text-center justify-content-center align-items-center">
+                                            <span class="h5 gray text-center justify-content-center align-items-center">Клиент</span><br>
+                                            <span class="h4 text-dark text-center mb-4 ">{{ fact.client }}</span>
+                                        </div>
+                                        <hr class="my-0">
+
+                                    </div><!--//col-->
+                                </div><!--//row-->
+
+
+                                <div class="row results-body ml-2">
+                                    <div class="col text-left">
+                                        <span class="h4 my-4 text-dark problem"><span>Задачи</span></span>
+                                        <div class="results-check">
+                                            {{ fact.problem|raw }}
+                                        </div>
+                                    </div><!--//col-->
+
+                                    <div class="col text-left pr-5 mr-2">
+                                        <span class="h4 my-4 text-dark solution"><span>Решение</span></span>
+                                        <div class="results-check">
+                                            {{ fact.solution|raw }}
+                                        </div>
+                                    </div><!--//col-->
+                                </div><!--//row-->
+
+
+                                <div class="row results-footer d-flex justify-content-center align-items-center text-center pt-4 pb-4 pl-4 pr-4 mb-0">
+                                    <div class="row text-white">
+                                        <div class="col">
+                                            <span class="h4 text-white"><span>Результаты</span></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row text-white pt-0 mt-0 mb-0">
+
+
+                                        <div class="col results-footer-col pt-2 pb-2">
+                                            <span
+                                                        class="h2 text-white result-number">{{ fact.number1|number_format(0, '.', ' ') }}</span>
+                                            
+                                            <hr>
+                                            <span class="result-text"><span class="b">{{ fact.measure1 }}</span>&nbsp;{{ fact.option1 }}</span>
+                                        </div>
+
+                                        <div class="col results-footer-col pt-2 pb-2">
+                                            <span
+                                                        class="h2 text-white result-number">{{ fact.number2|number_format(0, '.', ' ') }}</span>
+                                            
+                                            <hr>
+                                            <span class="result-text"><span class="b">{{ fact.measure2 }}</span>&nbsp;{{ fact.option2 }}</span>
+                                        </div>
+
+                                        <div class="col results-footer-col pt-2 pb-2">
+                                            <span
+                                                        class="h2 text-white result-number">{{ fact.number3|number_format(0, '.', ' ') }}</span>
+                                            
+                                            <hr>
+                                            <span class="result-text"><span class="b">{{ fact.measure3 }}</span>&nbsp;{{ fact.option3 }}</span>
+                                        </div>
+
+                                        <div class="col results-footer-col pt-2 pb-2">
+                                            <span
+                                                        class="h2 text-white result-number">{{ fact.number4|number_format(0, '.', ' ') }}</span>
+                                            
+                                            <hr>
+                                            <span class="result-text"><span class="b">{{ fact.measure4 }}</span>&nbsp;{{ fact.option4 }}</span>
+                                        </div>
+
+                                        <div class="col results-footer-col pt-2 pb-2">
+                                            <span
+                                                        class="h2 text-white result-number">{{ fact.number5|number_format(0, '.', ' ') }}</span>
+                                            
+                                            <hr>
+                                            <span class="result-text"><span class="b">{{ fact.measure5 }}</span>&nbsp;{{ fact.option5 }}</span>
+                                        </div>
+                                    </div> <!--//row-->
+                                </div><!-- row results-footer -->
+
+                            </div> <!--//col-->
+                        </div><!--//row-->
+
+
+                    </div><!--//item-->
+
+                </div><!--//item-holder-->
+            {% endfor %}
+        </div>
+    </div>
+    <br><br>
+</section>

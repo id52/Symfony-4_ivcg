@@ -1,0 +1,11 @@
+<section id="direction-text" class="mb-0 pt-5 pb-0 px-4">
+    <div class="container justify-content-center text-center align-content-center ">
+        <header class="text-center no-margin-bottom">
+            <h3 class="text-dark mt-4">{{ region.textMainTitle|raw }}</h3>
+        </header>
+        <div class="text-justify text-check mt-4 py-4">
+            {{ region.text|geo_prepositon(geo.getPrepositionalCaseWithPrepositionLow()) }}
+        </div>
+    </div>
+</section>
+
